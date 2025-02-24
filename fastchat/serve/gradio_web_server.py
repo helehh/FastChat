@@ -708,6 +708,10 @@ body.dark .voting-button {
     gap: 0;
 }
 
+.regenerate_button {
+    display: none;
+}
+
 body #hero_text {
     background-color: #e0f0ff;
     text-align: center;
@@ -797,8 +801,8 @@ button[disabled] {
 }
 
 @media screen and (min-width: 640px) {
-    .row-middle-button {
-        margin: 0 12px;
+    .control_button:first-child {
+        margin-right: 12px;
     }
 }
 
@@ -827,16 +831,6 @@ button[disabled] {
         width: 100%;
         margin: 0;
         border-radius: 0;
-    }
-
-    .control_button:nth-child(1) {
-        order: 1;
-    }
-    .control_button:nth-child(2) {
-        order: 3;
-    }
-    .control_button:nth-child(3) {
-        order: 2;
     }
     
     #send_button {

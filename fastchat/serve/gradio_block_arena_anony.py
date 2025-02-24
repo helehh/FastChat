@@ -537,12 +537,13 @@ def build_side_by_side_ui_anony(models):
                 value="🎲 Uus vestlus", elem_classes="control_button", interactive=False
             )
             share_btn = gr.Button(
-                value="📷  Jaga", elem_classes="row-middle-button control_button"
+                value="📷  Jaga", elem_classes="control_button"
             )
             regenerate_btn = gr.Button(
                 value="🔄  Genereeri vastus uuesti",
-                elem_classes="control_button",
-                interactive=False,
+                elem_classes="control_button regenerate_button",
+                visible=False,
+                interactive=False
             )
 
     with gr.Accordion("Parameetrid", open=False, visible=False) as parameter_row:
@@ -606,15 +607,15 @@ def build_side_by_side_ui_anony(models):
         model_selectors
         + [textbox, leftvote_btn, rightvote_btn, tie_btn, bothbad_btn, send_btn],
     )
-    regenerate_btn.click(
-        regenerate, states, states + chatbots + [textbox] + btn_list
-    ).then(
-        bot_response_multi,
-        states + [temperature, top_p, max_output_tokens],
-        states + chatbots + btn_list,
-    ).then(
-        flash_buttons, [], btn_list
-    )
+    # regenerate_btn.click(
+    #     regenerate, states, states + chatbots + [textbox] + btn_list
+    # ).then(
+    #     bot_response_multi,
+    #     states + [temperature, top_p, max_output_tokens],
+    #     states + chatbots + btn_list,
+    # ).then(
+    #     flash_buttons, [], btn_list
+    # )
     clear_btn.click(
         clear_history,
         None,
