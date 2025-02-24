@@ -450,7 +450,7 @@ def build_side_by_side_ui_anony(models):
                 <h2>🇪🇪 Keelemudelite edetabel 🇪🇪</h2>
                 <h1>Aita valida parimat eestikeelset keelemudelit!</h1>
                 <ol>
-                    <li>Esita oma küsimus. Sinu küsimusele vastavad kaks anonüümset keelemudelit.</li>
+                    <li>Esita oma küsimus eesti keeles. Sinu küsimusele vastavad kaks anonüümset keelemudelit.</li>
                     <li>Vali kahest vastusest parim. Kui sa kohe valikut ei oska langetada, võid vestlust jätkata kuni oled otsuseni jõudnud.</li>
                     <li>Sinu valikute põhjal koostame mudelite edetabeli. Palun tee oma otsus vastutustundlikult.</li>
                 </ol>
@@ -499,6 +499,14 @@ def build_side_by_side_ui_anony(models):
                 elem_classes="voting_button",
                 visible=False,
                 interactive=False,
+                variant="primary",
+            )
+            rightvote_btn = gr.Button(
+                value="Mudel B on parem",
+                elem_classes="voting_button",
+                visible=False,
+                interactive=False,
+                variant="primary",
             )
             tie_btn = gr.Button(
                 value="🤝  Viik",
@@ -508,12 +516,6 @@ def build_side_by_side_ui_anony(models):
             )
             bothbad_btn = gr.Button(
                 value="👎  Mõlemad on halvad",
-                elem_classes="voting_button",
-                visible=False,
-                interactive=False,
-            )
-            rightvote_btn = gr.Button(
-                value="Mudel B on parem",
                 elem_classes="voting_button",
                 visible=False,
                 interactive=False,
