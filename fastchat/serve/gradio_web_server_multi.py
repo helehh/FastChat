@@ -198,6 +198,8 @@ window.__gradio_mode__ = "app";
         button_primary_background_fill_hover_dark="*primary_700",
         button_secondary_background_fill="*secondary_500",
         button_secondary_background_fill_hover="*secondary_600",
+        button_secondary_background_fill_dark="*secondary_500",
+        button_secondary_background_fill_hover_dark="*secondary_600",
     )
     with gr.Blocks(
         title="Keelemudelite edetabel",
