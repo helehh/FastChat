@@ -34,6 +34,7 @@ from fastchat.serve.gradio_web_server import (
     block_css,
     build_single_model_ui,
     build_about,
+    build_terms,
     get_model_list,
     load_demo_single,
     get_ip,
@@ -80,6 +81,19 @@ def build_visualizer():
     gr.HTML(frame)
 
 
+def build_logos(position="top"):
+    gr.HTML(
+        f"""
+        <div class="contributor_logos_{position}">
+            <img class="contributor_logo" src="https://i.imgur.com/S5joumv.png">
+            <img class="contributor_logo" src="https://i.imgur.com/rBK2415.png">
+            <img class="contributor_logo" src="https://i.imgur.com/ZKHvcZ6.png">
+            <img class="contributor_logo" src="https://i.imgur.com/BvL0MYi.png">
+        </div>    
+"""
+    )
+
+
 def load_demo(context: Context, request: gr.Request):
     ip = get_ip(request)
     logger.info(f"load_demo. ip: {ip}. params: {request.query_params}")
@@ -105,11 +119,11 @@ def load_demo(context: Context, request: gr.Request):
             vision_arena=False,
         )
 
-        #context.vision_models, context.all_vision_models = get_model_list(
+        # context.vision_models, context.all_vision_models = get_model_list(
         #    args.controller_url,
         #    args.register_api_endpoint_file,
         #    vision_arena=True,
-        #)
+        # )
 
     # Text models
     if args.vision_arena:
@@ -121,19 +135,19 @@ def load_demo(context: Context, request: gr.Request):
 
         direct_chat_updates = load_demo_single(context, request.query_params)
     else:
-        #direct_chat_updates = load_demo_single(context, request.query_params)
+        # direct_chat_updates = load_demo_single(context, request.query_params)
         side_by_side_anony_updates = load_demo_side_by_side_anony(
             context.all_text_models, request.query_params
         )
-        #side_by_side_named_updates = load_demo_side_by_side_named(
+        # side_by_side_named_updates = load_demo_side_by_side_named(
         #    context.text_models, request.query_params
-        #)
+        # )
 
     tabs_list = (
         [gr.Tabs(selected=inner_selected)]
         + side_by_side_anony_updates
-        #+ side_by_side_named_updates
-        #+ direct_chat_updates
+        # + side_by_side_named_updates
+        # + direct_chat_updates
     )
 
     return tabs_list
@@ -149,6 +163,10 @@ def build_demo(
 
     head_js = """
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<link
+  rel="icon"
+  href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇪🇪</text></svg>"
+/>
 """
     if args.ga_id is not None:
         head_js += f"""
@@ -162,14 +180,34 @@ gtag('config', '{args.ga_id}');
 window.__gradio_mode__ = "app";
 </script>
         """
-    text_size = gr.themes.sizes.text_lg
+
+    theme = gr.themes.Monochrome(
+        primary_hue="amber",
+        secondary_hue="neutral",
+        radius_size="sm",
+        font=[
+            gr.themes.GoogleFont("Quicksand"),
+            "ui-sans-serif",
+            "system-ui",
+            "sans-serif",
+        ],
+    ).set(
+        button_primary_background_fill="*primary_500",
+        button_primary_background_fill_hover="*primary_600",
+        button_primary_background_fill_dark="*primary_600",
+        button_primary_background_fill_hover_dark="*primary_700",
+        button_secondary_background_fill="*secondary_500",
+        button_secondary_background_fill_hover="*secondary_600",
+    )
     with gr.Blocks(
-        title="Keelemudelite edetabel: aita valida parimat keelemudelit!",
-        theme=gr.themes.Default(text_size=text_size),
+        title="Keelemudelite edetabel",
+        theme=theme,
         css=block_css,
         head=head_js,
     ) as demo:
-        with gr.Tabs() as inner_tabs:
+        build_logos()
+
+        with gr.Tabs(elem_classes="tabs") as inner_tabs:
             if args.vision_arena:
                 with gr.Tab("⚔️ Arena (battle)", id=0) as arena_tab:
                     arena_tab.select(None, None, None, js=load_js)
@@ -192,19 +230,19 @@ window.__gradio_mode__ = "app";
                     )
 
             else:
-                with gr.Tab("💬  Vestlemine", id=0) as arena_tab:
+                with gr.Tab("🇪🇪 Vestle", id=0, elem_id="chat_tab") as arena_tab:
                     arena_tab.select(None, None, None, js=load_js)
                     side_by_side_anony_list = build_side_by_side_ui_anony(
                         context.all_text_models
                     )
 
-                #with gr.Tab("⚔️ Arena (side-by-side)", id=1) as side_by_side_tab:
+                # with gr.Tab("⚔️ Arena (side-by-side)", id=1) as side_by_side_tab:
                 #    side_by_side_tab.select(None, None, None, js=alert_js)
                 #    side_by_side_named_list = build_side_by_side_ui_named(
                 #        context.text_models
                 #    )
 
-                #with gr.Tab("💬 Direct Chat", id=2) as direct_tab:
+                # with gr.Tab("💬 Direct Chat", id=2) as direct_tab:
                 #    direct_tab.select(None, None, None, js=alert_js)
                 #    single_model_list = build_single_model_ui(
                 #        context.text_models, add_promotion_links=True
@@ -213,8 +251,8 @@ window.__gradio_mode__ = "app";
             demo_tabs = (
                 [inner_tabs]
                 + side_by_side_anony_list
-                #+ side_by_side_named_list
-                #+ single_model_list
+                # + side_by_side_named_list
+                # + single_model_list
             )
 
             if elo_results_file:
@@ -229,8 +267,13 @@ window.__gradio_mode__ = "app";
                 with gr.Tab("🔍 Arena Visualizer", id=5):
                     build_visualizer()
 
-            with gr.Tab("ℹ️ Meist", id=4):
+            with gr.Tab("ℹ️ Meist", id=4, elem_classes="tab-button"):
                 build_about()
+
+            with gr.Tab("📜 Kasutajatingimused", id=5):
+                build_terms()
+
+            build_logos("bottom")
 
         context_state = gr.State(context)
 
