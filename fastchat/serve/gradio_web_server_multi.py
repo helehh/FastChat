@@ -223,7 +223,7 @@ window.__gradio_mode__ = "app";
                         elo_results_file,
                         leaderboard_table_file,
                         arena_hard_table,
-                        show_plot=True,
+                        show_plot=False,
                     )
             if args.show_visualizer:
                 with gr.Tab("🔍 Arena Visualizer", id=5):

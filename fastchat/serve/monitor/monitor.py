@@ -381,15 +381,15 @@ def update_leaderboard_df(arena_table_vals):
 
 def update_overall_leaderboard_df(arena_table_vals):
     columns = [
-        "Rank* (UB)",
+        "Koht",
         "Rank (StyleCtrl)",
-        "Model",
-        "Arena Score",
-        "95% CI",
-        "Votes",
-        "Organization",
-        "License",
-        "Knowledge Cutoff",
+        "Mudel",
+        "Skoor",
+        "95% UI",
+        "Hääli",
+        "Looja",
+        "Litsents",
+        "Teadmiste lõpp",
     ]
     elo_dataframe = pd.DataFrame(arena_table_vals, columns=columns)
 
@@ -416,9 +416,7 @@ def update_overall_leaderboard_df(arena_table_vals):
     indices_red = [i for i, value in enumerate(comparison) if value == -1]
     indices_green = [i for i, value in enumerate(comparison) if value == 1]
 
-    return elo_dataframe.style.apply(
-        highlight_red, subset=pd.IndexSlice[indices_red, ["Rank (StyleCtrl)"]]
-    ).apply(highlight_green, subset=pd.IndexSlice[indices_green, ["Rank (StyleCtrl)"]])
+    return elo_dataframe.drop(columns=["Rank (StyleCtrl)"])
 
 
 def build_arena_tab(
@@ -456,13 +454,7 @@ def build_arena_tab(
             arena_overall_sc_df["num_battles"] > 300
         ]
 
-    def update_leaderboard_and_plots(category, filters):
-        if len(filters) > 0 and "Style Control" in filters:
-            cat_name = f"{category} w/ Style Control"
-            if cat_name in arena_dfs:
-                category = cat_name
-            else:
-                gr.Warning("This category does not support style control.")
+    def update_leaderboard_and_plots(category):
 
         arena_subset_df = arena_dfs[category]
         arena_subset_df = arena_subset_df[arena_subset_df["num_battles"] > 300]
@@ -477,11 +469,7 @@ def build_arena_tab(
             arena_subset_df=arena_subset_df
             if category != "Overall"
             else arena_overall_sc_df,
-            hidden_models=(
-                None
-                if len(filters) > 0 and "Show Deprecated" in filters
-                else deprecated_model_name
-            ),
+            hidden_models=None,
             is_overall=category == "Overall",
         )
         if category != "Overall":
@@ -512,7 +500,7 @@ def build_arena_tab(
                 value=arena_values,
                 elem_id="arena_leaderboard_dataframe",
                 height=1000,
-                column_widths=[75, 75, 180, 60, 60, 60, 70, 80, 60],
+                column_widths=[75, 180, 60, 60, 60, 70, 80, 60],
                 wrap=True,
             )
         else:
@@ -520,7 +508,6 @@ def build_arena_tab(
             arena_values = gr.Dataframe(
                 headers=[
                     "Rank* (UB)",
-                    "Rank (StyleCtrl)",
                     "Model",
                     "Arena Score",
                     "95% CI",
@@ -530,7 +517,6 @@ def build_arena_tab(
                     "Knowledge Cutoff",
                 ],
                 datatype=[
-                    "number",
                     "number",
                     "markdown",
                     "number",
@@ -543,7 +529,7 @@ def build_arena_tab(
                 value=arena_values,
                 elem_id="arena_leaderboard_dataframe",
                 height=1000,
-                column_widths=[75, 75, 180, 60, 60, 60, 70, 80, 60],
+                column_widths=[75, 180, 60, 60, 60, 70, 80, 60],
                 wrap=True,
             )
 
@@ -582,31 +568,30 @@ def build_arena_tab(
     category_choices = [x for x in category_choices if "Style Control" not in x]
 
     with gr.Row():
-        with gr.Column(scale=2):
-            category_dropdown = gr.Dropdown(
-                choices=category_choices,
-                label="Category",
-                value="Overall",
-            )
-        with gr.Column(scale=2):
-            category_checkbox = gr.CheckboxGroup(
-                ["Style Control", "Show Deprecated"],
-                label="Apply filter",
-                info="",
-            )
+        #with gr.Column(scale=2):
+        #    category_dropdown = gr.Dropdown(
+        #        choices=category_choices,
+        #        label="Category",
+        #        value="Overall",
+        #    )
+        #with gr.Column(scale=2):
+        #    category_checkbox = gr.CheckboxGroup(
+        #        ["Style Control", "Show Deprecated"],
+        #        label="Apply filter",
+        #        info="",
+        #    )
         default_category_details = make_category_arena_leaderboard_md(
             arena_df, arena_df, name="Overall"
         )
-        with gr.Column(scale=3, variant="panel"):
-            category_deets = gr.Markdown(
-                default_category_details, elem_id="category_deets"
-            )
+        #with gr.Column(scale=3, variant="panel"):
+        #    category_deets = gr.Markdown(
+        #        default_category_details, elem_id="category_deets"
+        #    )
 
     arena_vals = update_overall_leaderboard_df(arena_table_vals)
     elo_display_df = gr.Dataframe(
         headers=[
             "Rank* (UB)",
-            "Rank (StyleCtrl)",
             "Model",
             "Arena Elo",
             "95% CI",
@@ -616,7 +601,6 @@ def build_arena_tab(
             "Knowledge Cutoff",
         ],
         datatype=[
-            "number",
             "number",
             "markdown",
             "number",
@@ -629,20 +613,14 @@ def build_arena_tab(
         value=arena_vals,
         elem_id="arena_leaderboard_dataframe",
         height=1000,
-        column_widths=[75, 75, 180, 60, 60, 60, 70, 80, 60],
+        column_widths=[75, 180, 60, 60, 60, 70, 80, 60],
         wrap=True,
     )
 
     gr.Markdown(
         f"""
-***Rank (UB)**: model's ranking (upper-bound), defined by one + the number of models that are statistically better than the target model.
-Model A is statistically better than model B when A's lower-bound score is greater than B's upper-bound score (in 95% confidence interval).
-See Figure 1 below for visualization of the confidence intervals of model scores.
-
-**Rank (StyleCtrl)**: model's ranking with style control, which accounts for factors like response length and markdown usage to decouple model performance from these potential confounding variables.
-See [blog post](https://blog.lmarena.ai/blog/2024/style-control/) for further details.
-
-Note: in each category, we exclude models with fewer than 300 votes as their confidence intervals can be large.
+***Koht**: mudeli koht edetabelis näitab mudelite arvu, mis on antud mudelist statistiliselt paremad + 1.
+Mudel A on statistiliselt parem kui mudel B, kui A usaldusintervalli alumine skoor on suurem kui B usaldusintervalli ülemine skoor (95% usaldusintervall).
 """,
         elem_id="leaderboard_markdown",
     )
@@ -681,34 +659,10 @@ Note: in each category, we exclude models with fewer than 300 votes as their con
                     elem_id="plot-title",
                 )
                 plot_2 = gr.Plot(p2, show_label=False)
-    category_dropdown.change(
-        update_leaderboard_and_plots,
-        inputs=[category_dropdown, category_checkbox],
-        outputs=[
-            elo_display_df,
-            plot_1,
-            plot_2,
-            plot_3,
-            plot_4,
-            more_stats_md,
-            category_deets,
-        ],
-    )
-
-    category_checkbox.change(
-        update_leaderboard_and_plots,
-        inputs=[category_dropdown, category_checkbox],
-        outputs=[
-            elo_display_df,
-            plot_1,
-            plot_2,
-            plot_3,
-            plot_4,
-            more_stats_md,
-            category_deets,
-        ],
-    )
-    return [plot_1, plot_2, plot_3, plot_4]
+    
+    
+        return [plot_1, plot_2, plot_3, plot_4]
+    return []
 
 
 def build_full_leaderboard_tab(elo_results, model_table_df, model_to_score):
@@ -935,60 +889,11 @@ def build_leaderboard_tab(
         model_table_df = pd.DataFrame(data)
 
         with gr.Tabs() as tabs:
-            with gr.Tab("Arena", id=0):
+            with gr.Tab("Tabel", id=0):
                 gr_plots = build_arena_tab(
                     elo_results_text,
                     model_table_df,
                     default_md,
-                    show_plot=show_plot,
-                )
-            with gr.Tab("📣 NEW: Overview", id=1):
-                gr.Markdown(
-                    f"""
-                    <div style="text-align: center; font-weight: bold;">
-                        For a more holistic comparison, we've updated the leaderboard to show model rank (UB) across tasks and languages. Check out the 'Arena' tab for more categories, statistics, and model info.
-                    </div>
-                    """,
-                )
-                last_updated_time = elo_results_text["full"][
-                    "last_updated_datetime"
-                ].split(" ")[0]
-                gr.Markdown(
-                    make_arena_leaderboard_md(
-                        elo_results_text["full"]["leaderboard_table_df"],
-                        last_updated_time,
-                    ),
-                    elem_id="leaderboard_markdown",
-                )
-                combined_table = get_combined_table(elo_results_text, model_table_df)
-                build_category_leaderboard_tab(
-                    combined_table,
-                    "Task",
-                    selected_categories,
-                    selected_categories_width,
-                )
-                build_category_leaderboard_tab(
-                    combined_table,
-                    "Language",
-                    language_categories,
-                    language_categories_width,
-                )
-                gr.Markdown(
-                    f"""
-            ***Rank (UB)**: model's ranking (upper-bound), defined by one + the number of models that are statistically better than the target model.
-            Model A is statistically better than model B when A's lower-bound score is greater than B's upper-bound score (in 95% confidence interval).
-            See Figure 1 below for visualization of the confidence intervals of model scores.
-
-            Note: in each category, we exclude models with fewer than 300 votes as their confidence intervals can be large.
-            """,
-                    elem_id="leaderboard_markdown",
-                )
-            with gr.Tab("Arena (Vision)", id=2):
-                build_arena_tab(
-                    elo_results_vision,
-                    model_table_df,
-                    default_md,
-                    vision=True,
                     show_plot=show_plot,
                 )
             model_to_score = {}
@@ -1030,11 +935,6 @@ def build_leaderboard_tab(
                         column_widths=[70, 190, 80, 80, 90, 150],
                     )
 
-            with gr.Tab("Full Leaderboard", id=4):
-                build_full_leaderboard_tab(
-                    elo_results_text, model_table_df, model_to_score
-                )
-
             from fastchat.serve.monitor.copilot_arena import (
                 build_copilot_arena_tab,
                 copilot_arena_leaderboard_url,
@@ -1050,37 +950,11 @@ def build_leaderboard_tab(
                     "Please configure it to a valid URL."
                 )
 
-        if not show_plot:
-            gr.Markdown(
-                """ ## Visit our [HF space](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard) for more analysis!
-                If you want to see more models, please help us [add them](https://github.com/lm-sys/FastChat/blob/main/docs/arena.md#how-to-add-a-new-model).
-                """,
-                elem_id="leaderboard_markdown",
-            )
     else:
         pass
 
     from fastchat.serve.gradio_web_server import acknowledgment_md
 
-    with gr.Accordion(
-        "Citation",
-        open=True,
-    ):
-        citation_md = """
-            ### Citation
-            Please cite the following paper if you find our leaderboard or dataset helpful.
-            ```
-            @misc{chiang2024chatbot,
-                title={Chatbot Arena: An Open Platform for Evaluating LLMs by Human Preference},
-                author={Wei-Lin Chiang and Lianmin Zheng and Ying Sheng and Anastasios Nikolas Angelopoulos and Tianle Li and Dacheng Li and Hao Zhang and Banghua Zhu and Michael Jordan and Joseph E. Gonzalez and Ion Stoica},
-                year={2024},
-                eprint={2403.04132},
-                archivePrefix={arXiv},
-                primaryClass={cs.AI}
-            }
-            """
-        gr.Markdown(citation_md, elem_id="leaderboard_markdown")
-        gr.Markdown(acknowledgment_md, elem_id="ack_markdown")
 
     return [md_1] + gr_plots
 

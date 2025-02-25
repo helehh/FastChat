@@ -83,8 +83,7 @@ leader_component_values = [None] * 5
 def make_default_md_1(mirror=False):
     link_color = "#1976D2"  # This color should be clear in both light and dark mode
     leaderboard_md = f"""
-    # 🏆 Chatbot Arena LLM Leaderboard: Community-driven Evaluation for Best LLM and AI chatbots
-    [Twitter](https://twitter.com/lmarena_ai) | [Discord](https://discord.gg/6GXcFg3TH8) | [Blog](https://blog.lmarena.ai/) | [GitHub](https://github.com/lm-sys/FastChat) | [Paper](https://arxiv.org/abs/2403.04132) | [Dataset](https://github.com/lm-sys/FastChat/blob/main/docs/dataset_release.md) | [Kaggle Competition](https://www.kaggle.com/competitions/wsdm-cup-multilingual-chatbot-arena)
+    # 🏆 Tulemused
     """
 
     return leaderboard_md
@@ -94,12 +93,6 @@ def make_default_md_2(mirror=False):
     mirror_str = "<span style='color: red; font-weight: bold'>This is a mirror of the live leaderboard created and maintained at <a href='https://lmarena.ai/leaderboard' style='color: #B00020; text-decoration: none;'>https://lmarena.ai/leaderboard</a>. Please link to the original URL for citation purposes.</span>"
     leaderboard_md = f"""
 {mirror_str if mirror else ""}
-
-Chatbot Arena ([lmarena.ai](https://lmarena.ai)) is an open-source platform for evaluating AI through human preference, developed by researchers at UC Berkeley [SkyLab](https://sky.cs.berkeley.edu/) and [LMSYS](https://lmsys.org). With over 1,000,000 user votes, the platform ranks best LLM and AI chatbots using the Bradley-Terry model to generate live leaderboards. For technical details, check out our [paper](https://arxiv.org/abs/2403.04132).
-
-**Chatbot Arena thrives on community engagement — cast your vote to help improve AI evaluation!**
-
-{SURVEY_LINK}
 """
 
     return leaderboard_md
@@ -111,11 +104,7 @@ def make_arena_leaderboard_md(arena_df, last_updated_time, vision=False):
     space = "&nbsp;&nbsp;&nbsp;"
 
     leaderboard_md = f"""
-Total #models: **{total_models}**.{space} Total #votes: **{"{:,}".format(total_votes)}**.{space} Last updated: {last_updated_time}.
-"""
-
-    leaderboard_md += f"""
-Code to recreate leaderboard tables and plots in this [notebook]({notebook_url}). You can contribute your vote at [lmarena.ai](https://lmarena.ai)!
+Mudeleid kokku: **{total_models}**.{space} Hääli kokku: **{"{:,}".format(total_votes)}**.{space} Viimati uuendatud: {last_updated_time}.
 """
     return leaderboard_md
 
