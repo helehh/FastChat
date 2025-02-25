@@ -641,7 +641,7 @@ block_css = """
     gap: 0;
 }
 
-#input_box, #input_row {
+body:not(.dark) #input_box, #input_row {
     background-color: #ffffff70;
 }
 
@@ -649,12 +649,17 @@ block_css = """
     font-size: 16px;
 }
 
-#input_box textarea:not([disabled]) {
+body:not(.dark) #input_box textarea:not([disabled]) {
     background-color: white;
 }
 
+body.dark #input_box textarea::placeholder {
+    color: white;
+}
+
 body.dark #input_box textarea {
-    color: #555;
+    background-color: #444;
+    color: #ddd;
 }
 
 .chatbot {
@@ -719,7 +724,7 @@ body #hero_text {
 }
 
 body.dark #hero_text {
-    background-color: #47637d;
+    background-color: #394e61;
 }
 
 #hero_text h1 {
