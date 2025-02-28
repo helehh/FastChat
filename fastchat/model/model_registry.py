@@ -74,6 +74,15 @@ register_model_info(
 
 register_model_info(
     [
+        "claude-3-7-sonnet-20250219"
+    ],
+    "Claude 3.7",
+    "hhttps://www.anthropic.com/news/claude-3-7-sonnet",
+    "Claude by Anthropic",
+)
+
+register_model_info(
+    [
         "llama-3.2-vision-90b-instruct",
         "llama-3.2-vision-11b-instruct",
         "llama-3.2-3b-instruct",
@@ -104,8 +113,8 @@ register_model_info(
         "gemini-1.5-pro-api-0514",
         "gemini-1.5-flash-api-0514",
         "gemini-advanced-0514",
-        "gemini-1.5-flash",
-        "gemini-1.5-pro"
+        "gemini-1.5-flash-002",
+        "gemini-1.5-pro-002"
     ],
     "Gemini",
     "https://deepmind.google/technologies/gemini/",
