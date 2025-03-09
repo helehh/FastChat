@@ -713,8 +713,12 @@ body.dark .voting-button {
     gap: 0;
 }
 
-.regenerate_button {
+.hidden {
     display: none;
+}
+
+.bold {
+    font-weight: 600;
 }
 
 body #hero_text {
@@ -770,6 +774,10 @@ body.dark .contributor_logos_bottom {
 
 .contributor_logo {
     height: 28px;
+}
+
+.contributor_logos_top .contributor_logo {
+    height: 32px;
 }
 
 .contributor_logo:not(:first-child) {

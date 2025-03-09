@@ -162,11 +162,12 @@ def build_demo(
         load_js = get_window_url_params_js
 
     head_js = """
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <link
   rel="icon"
-  href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇪🇪</text></svg>"
+  type="image/png"
+  href="https://i.imgur.com/06AMu9U.png"
 />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 """
     if args.ga_id is not None:
         head_js += f"""
@@ -232,7 +233,7 @@ window.__gradio_mode__ = "app";
                     )
 
             else:
-                with gr.Tab("🇪🇪 Vestle", id=0, elem_id="chat_tab") as arena_tab:
+                with gr.Tab("💬 Vestle", id=0, elem_id="chat_tab") as arena_tab:
                     arena_tab.select(None, None, None, js=load_js)
                     side_by_side_anony_list = build_side_by_side_ui_anony(
                         context.all_text_models

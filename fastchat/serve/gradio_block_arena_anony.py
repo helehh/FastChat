@@ -447,7 +447,11 @@ def build_side_by_side_ui_anony(models):
     gr.HTML(
         """
             <div id="hero_text">
-                <h2>🇪🇪 Keelemudelite edetabel 🇪🇪</h2>
+                <h2 style="display: flex; justify-content: center; align-items: center;">
+                    <img width='22px' height='22px' style="margin-right: 6px; margin-top: 4px; height: 22px" src="https://i.imgur.com/06AMu9U.png"/>
+                    Keelemudelite edetabel
+                    <img width='22px' height='22px' style="margin-left: 6px; margin-top: 4px; height: 22px" src="https://i.imgur.com/06AMu9U.png"/>
+                </h2>
                 <h1>Aita valida parimat eestikeelset keelemudelit!</h1>
                 <ol>
                     <li>Esita oma küsimus eesti keeles. Sinu küsimusele vastavad kaks anonüümset keelemudelit.</li>
@@ -495,14 +499,14 @@ def build_side_by_side_ui_anony(models):
     with gr.Group(elem_id="fixed_footer"):
         with gr.Row(elem_id="selection_buttons_row"):
             leftvote_btn = gr.Button(
-                value="Mudel A on parem",
+                value=" A on parem",
                 elem_classes="voting_button",
                 visible=False,
                 interactive=False,
                 variant="primary",
             )
             rightvote_btn = gr.Button(
-                value="Mudel B on parem",
+                value="B on parem",
                 elem_classes="voting_button",
                 visible=False,
                 interactive=False,
@@ -534,14 +538,14 @@ def build_side_by_side_ui_anony(models):
 
         with gr.Row() as button_row:
             clear_btn = gr.Button(
-                value="🎲 Uus vestlus", elem_classes="control_button", interactive=False
+                value="🎲 Uus vestlus", elem_classes="control_button", interactive=False, visible=False
             )
-            share_btn = gr.Button(
-                value="📷  Jaga", elem_classes="control_button"
+            info_btn = gr.Button(
+                value="❓ Kuidas valida?", elem_classes="control_button", visible=False
             )
             regenerate_btn = gr.Button(
                 value="🔄  Genereeri vastus uuesti",
-                elem_classes="control_button regenerate_button",
+                elem_classes="control_button hidden",
                 visible=False,
                 interactive=False
             )
@@ -580,7 +584,7 @@ def build_side_by_side_ui_anony(models):
         rightvote_btn,
         tie_btn,
         bothbad_btn,
-        regenerate_btn,
+        info_btn,
         clear_btn,
     ]
     leftvote_btn.click(
@@ -628,27 +632,54 @@ def build_side_by_side_ui_anony(models):
         + [send_btn],
     )
 
-    share_js = """
+    def info_click():
+        gr.Info('HOW_TO_CHOOSE_TEXT_PLACEHOLDER', duration=None)
+
+
+
+
+
+    info_js = """
 function (a, b, c, d) {
-    const captureElement = document.querySelector('#share-region-anony');
-    html2canvas(captureElement)
-        .then(canvas => {
-            canvas.style.display = 'none'
-            document.body.appendChild(canvas)
-            return canvas
-        })
-        .then(canvas => {
-            const image = canvas.toDataURL('image/png')
-            const a = document.createElement('a')
-            a.setAttribute('download', 'chatbot-arena.png')
-            a.setAttribute('href', image)
-            a.click()
-            canvas.remove()
+    function editContent() {
+        document.querySelectorAll('.toast-wrap').forEach(message => { 
+            if (message.innerHTML.toString().includes('HOW_TO_CHOOSE_TEXT_PLACEHOLDER')) {
+                message.style.width = Math.min(window.innerWidth - 32, 560) + 'px'
+                message.querySelector('.toast-icon').style.alignSelf = "baseline"
+
+
+                message.querySelector('.toast-title').innerText = "Kuidas valida"
+
+                let text = message.querySelector('.toast-text')
+                text.style.paddingTop = "8px"
+                text.style.paddingLeft = "16px"
+
+                text.innerHTML = `
+<p>Mida hinnata vastuste juures:</p>
+<ul>
+  <li>Eelista vastuseid, mis on korrektses eesti keeles</li>
+  <li>Lisame siia hiljem veel infot, selle kohta, kuidas valida</li>
+</ul>
+<p>Pea silmas seda et: </p>
+<ol>
+  <li>Punkt 1</li>
+  <li>Punkt 2</li>
+  <li>Eriti <span class='bold'> oluline punkt </span></li>
+</ol>
+
+            `}
         });
+    }
+
+    setTimeout(editContent, 100)
+    setTimeout(editContent, 200)
+    setTimeout(editContent, 300)
+    setTimeout(editContent, 400)
+    
     return [a, b, c, d];
 }
 """
-    share_btn.click(share_click, states + model_selectors, [], js=share_js)
+    info_btn.click(info_click, js=info_js)
 
     textbox.submit(
         add_text,
