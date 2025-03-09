@@ -538,7 +538,10 @@ def build_side_by_side_ui_anony(models):
 
         with gr.Row() as button_row:
             clear_btn = gr.Button(
-                value="🎲 Uus vestlus", elem_classes="control_button", interactive=False, visible=False
+                value="🎲 Uus vestlus",
+                elem_classes="control_button",
+                interactive=False,
+                visible=False,
             )
             info_btn = gr.Button(
                 value="❓ Kuidas valida?", elem_classes="control_button", visible=False
@@ -547,7 +550,7 @@ def build_side_by_side_ui_anony(models):
                 value="🔄  Genereeri vastus uuesti",
                 elem_classes="control_button hidden",
                 visible=False,
-                interactive=False
+                interactive=False,
             )
 
     with gr.Accordion("Parameetrid", open=False, visible=False) as parameter_row:
@@ -633,11 +636,7 @@ def build_side_by_side_ui_anony(models):
     )
 
     def info_click():
-        gr.Info('HOW_TO_CHOOSE_TEXT_PLACEHOLDER', duration=None)
-
-
-
-
+        gr.Info("HOW_TO_CHOOSE_TEXT_PLACEHOLDER", duration=None)
 
     info_js = """
 function (a, b, c, d) {
