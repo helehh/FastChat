@@ -259,7 +259,7 @@ window.__gradio_mode__ = "app";
             )
 
             if elo_results_file:
-                with gr.Tab("🏆 Tulemused", id=3):
+                with gr.Tab("🏆 Edetabel", id=3):
                     build_leaderboard_tab(
                         elo_results_file,
                         leaderboard_table_file,

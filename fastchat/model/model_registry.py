@@ -50,7 +50,7 @@ register_model_info(
     ],
     "GPT-4o",
     "https://openai.com/index/hello-gpt-4o/",
-    "The flagship model across audio, vision, and text by OpenAI",
+    "OpenAI mitteavalike mudelite lipulaev, mis mõistab nii kõne, pilti kui teksti"
 )
 
 register_model_info(
@@ -69,7 +69,7 @@ register_model_info(
     ],
     "Claude 3.5",
     "https://www.anthropic.com/news/claude-3-5-sonnet",
-    "Claude by Anthropic",
+    "Anthropicu mitteavalik mudel",
 )
 
 register_model_info(
@@ -78,7 +78,7 @@ register_model_info(
     ],
     "Claude 3.7",
     "hhttps://www.anthropic.com/news/claude-3-7-sonnet",
-    "Claude by Anthropic",
+    "Anthropicu mitteavalik mudel",
 )
 
 register_model_info(
@@ -97,7 +97,7 @@ register_model_info(
     ],
     "Llama 3.1",
     "https://llama.meta.com/",
-    "Open foundation and chat models by Meta",
+    "Meta vabavaralised mudelid",
 )
 
 register_model_info(
@@ -118,7 +118,7 @@ register_model_info(
     ],
     "Gemini",
     "https://deepmind.google/technologies/gemini/",
-    "Gemini by Google",
+    "Google mitteavalikud mudelid",
 )
 
 register_model_info(
@@ -142,7 +142,7 @@ register_model_info(
     ],
     "GPT-4-Turbo",
     "https://platform.openai.com/docs/models/gpt-4-and-gpt-4-turbo",
-    "GPT-4-Turbo by OpenAI",
+    "OpenAI mitteavalik mudel",
 )
 
 register_model_info(
@@ -170,6 +170,14 @@ register_model_info(
         "claude-3-haiku-20240307",
         "claude-3-sonnet-20240229",
         "claude-3-opus-20240229",
+    ],
+    "Claude 3",
+    "https://www.anthropic.com/news/claude-3-family",
+    "Anthropicu mitteavalik mudel",
+)
+
+register_model_info(
+    [
         "claude-2.1",
         "claude-2.0",
         "claude-1",
@@ -197,7 +205,7 @@ register_model_info(
     ["llama-3-70b-instruct", "llama-3-8b-instruct"],
     "Llama 3",
     "https://ai.meta.com/blog/meta-llama-3/",
-    "Open foundation and chat models by Meta",
+    "Meta vabavaralised mudelid",
 )
 
 register_model_info(
@@ -336,7 +344,6 @@ register_model_info(
 
 register_model_info(
     [
-        "mixtral-8x7b-instruct-v0.1",
         "mistral-large-2402",
         "mistral-large-2407",
         "mistral-medium",
@@ -350,6 +357,15 @@ register_model_info(
     "Mixtral of experts",
     "https://mistral.ai/news/mixtral-of-experts/",
     "A Mixture-of-Experts model by Mistral AI",
+)
+
+register_model_info(
+    [
+        "mixtral-8x7b-instruct-v0.1",
+    ],
+    "Mixtral of Experts 8x7B",
+    "https://mistral.ai/news/mixtral-of-experts/",
+    "Mistral AI vabavaraline mudel",
 )
 
 register_model_info(
@@ -524,7 +540,7 @@ register_model_info(
     ["deepseek-llm-67b-chat", "DeepSeek-R1-Distill-Qwen-32B", "DeepSeek-R1-Distill-Qwen-1.5B"],
     "DeepSeek LLM",
     "https://huggingface.co/deepseek-ai/deepseek-llm-67b-chat",
-    "An advanced language model by DeepSeek",
+    "DeepSeeki vabavaraline mudel",
 )
 
 
@@ -539,7 +555,7 @@ register_model_info(
     ["nous-hermes-2-mixtral-8x7b-dpo", "hermes-3-Llama-3.1-8B"],
     "Nous-Hermes-2-Mixtral-8x7B-DPO",
     "https://huggingface.co/NousResearch/Nous-Hermes-2-Mixtral-8x7B-DPO",
-    "Nous Hermes finetuned from Mixtral 8x7B",
+    "NousHermes'i vabavaraline mudel",
 )
 
 
