@@ -297,7 +297,7 @@ def add_text(
         return (
             states
             + [x.to_gradio_chatbot() for x in states]
-            + ["", None]
+            + [""]
             + [
                 no_change_btn,
             ]
