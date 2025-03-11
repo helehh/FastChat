@@ -906,6 +906,11 @@ button[disabled] {
         max-width: 50%;
     }
 
+    .voting_button.secondary {
+        font-size: 15.5px;
+        min-height: 46px;
+    }
+
     /*
     .voting_button:nth-child(1) {
         order: 1;
