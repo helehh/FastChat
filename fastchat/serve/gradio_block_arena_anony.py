@@ -449,14 +449,15 @@ def build_side_by_side_ui_anony(models):
             <div id="hero_text">
                 <h2 style="display: flex; justify-content: center; align-items: center;">
                     <img width='22px' height='22px' style="margin-right: 6px; margin-top: 4px; height: 22px" src="https://i.imgur.com/06AMu9U.png"/>
-                    Keelemudelite edetabel
+                    Suur tehisarude võrdlus
                     <img width='22px' height='22px' style="margin-left: 6px; margin-top: 4px; height: 22px" src="https://i.imgur.com/06AMu9U.png"/>
                 </h2>
-                <h1>Aita valida parimat eestikeelset keelemudelit!</h1>
+                <h1>Valime koos välja eesti keelt kõige paremini oskava tehisaru!</h1>
                 <ol>
-                    <li>Esita oma küsimus eesti keeles. Sinu küsimusele vastavad kaks anonüümset keelemudelit.</li>
-                    <li>Vali kahest vastusest parim. Kui sa kohe valikut ei oska langetada, võid vestlust jätkata kuni oled otsuseni jõudnud.</li>
-                    <li>Sinu valikute põhjal koostame mudelite edetabeli. Palun tee oma otsus vastutustundlikult.</li>
+                    <li>Esita oma küsimus <b><u>eesti keeles</u></b>. Sulle vastavad kaks anonüümset tehisaru mudelit.</li>
+                    <li>Vali kahest vastusest parem. Kui sa kohe valida ei oska, jätka vestlust, kuni oled otsuseni jõudnud.</li>
+                    <li>Sinu panus aitab välja selgitada eesti keelt kõige paremini oskavad tehisaru mudelid.</li>
+                    <li>Tõetruu ülevaate saamiseks palume, et hindaksid mudeleid <b><u>vastutustundlikult</u></b>.</li>
                 </ol>
             </div>
             """,
