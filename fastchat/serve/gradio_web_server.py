@@ -71,10 +71,8 @@ use_remote_storage = False
 acknowledgment_md = """
 Kasutajad on kohustatud nõustuma järgmiste kasutustingimustega:
 
-See platvorm on loodud eelistusandmete ja juhiste kogumiseks parema eestikeelse keelemudeli loomise eesmärgil. Võrdluses olevatele keelemudelitele rakendatakse piiratud modereerimist, mistõtu võivad mudelid genereerida solvavat sisu. 
-Seda platvormi ei tohi kasutada ebaseadusliku, kedagi kahjustava, vägivaldse, rassistliku või seksuaalse sisuga teksti genereerimiseks. 
-Palun ära siseseta platvormile isiklikku informatsiooni.
-Platvorm kogub kasutajate dialoogiandmeid, ning jätab endale õiguse neid andmeid levitada Creative Commons Attribution (CC-BY) või sarnase litsentsi alusel. 
+Antud platvorm on loodud eelistusandmete ja juhiste kogumiseks parema eestikeelse tehisaru loomise eesmärgil. Kuigi kasutajate platvormile sisestatud tekst läbib automaatse modereerimise, ei ole see kahjuks täiuslik, mistõttu võivad mudelid genereerida solvavat sisu. Antut platvormi ei tohi kasutada ebaseadusliku, kedagi kahjustava, vägivaldse, rassistliku või seksuaalse sisuga teksti loomiseks. 
+Palun ära siseseta platvormile isiklikku informatsiooni. Platvorm kogub kasutajate vestlusandmeid ning jätab endale õiguse neid andmeid levitada Creative Commons Attribution (CC-BY) või sarnase litsentsi alusel. 
 """
 
 # JSON file format of API-based models:
@@ -1135,20 +1133,25 @@ def build_terms():
 def build_about():
     about_markdown = """
 # Meist
-Keelemudelite edetabel ([vestle.tartunlp.ai](https://vestle.tartunlp.ai)) on avatud lähtekoodiga platvorm keelemudelite hindamiseks kasutaja eelistuste kaudu. Platvormi lähtekoodi autorid on teadlased California Ülikoolist Berkeleys ([koduleht](https://sky.cs.berkeley.edu/)) ja mittetulundusorganisatsioonist [LMSYS](https://lmsys.org). [Originaalkoodi](https://github.com/lm-sys/FastChat) kohandas eestikeelseks [TartuNLP](https://tartunlp.ai). 
+Käesolev veebikeskkond ([vestle.tartunlp.ai](https://vestle.tartunlp.ai)) on avatud lähtekoodiga platvorm tehisarude hindamiseks kasutaja eelistuste abil. Algselt [California Ülikooli Berkeleys](https://sky.cs.berkeley.edu/) teadlaste ja mittetulundusorganisatsiooni [LMSYS](https://lmsys.org) loodud platvorm kohandasid eestikeelseks teadlased Tartu Ülikooli [keeletehnoloogia uurimisrühmast](https://tartunlp.ai). Projekti partnerid on Tartu Ülikool, TalTech, Tallinna Ülikool ning Eesti Keele Instituut.
 
+Platvorm täidab kahte eesmärki:
 
-## Originaalautorid
-- tiimijuhid: [Wei-Lin Chiang](https://infwinston.github.io/), [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/)
-- panustajad: [Lianmin Zheng](https://lmzheng.net/), [Ying Sheng](https://sites.google.com/view/yingsheng/home), [Lisa Dunlap](https://www.lisabdunlap.com/), [Christopher Chou](https://www.linkedin.com/in/chrisychou), [Tianle Li](https://codingwithtim.github.io/), [Evan Frick](https://efrick2002.github.io/), [Dacheng Li](https://dachengli1.github.io/), [Siyuan Zhuang](https://www.linkedin.com/in/siyuanzhuang)
-- nõustajad: [Ion Stoica](http://people.eecs.berkeley.edu/~istoica/), [Joseph E. Gonzalez](https://people.eecs.berkeley.edu/~jegonzal/), [Hao Zhang](https://cseweb.ucsd.edu/~haozhang/), [Trevor Darrell](https://people.eecs.berkeley.edu/~trevor/)
+1. Edetabel annab jooksva ülevaate sellest, millised tehisarud on eesti keeles kõige kvaliteetsemad.
+2. Hääletamise käigus kogutavate andmete abil on tulevikus võimalik õpetada tehisarusid paremini vastama.
 
-## Loe rohkem (materjalid inglise keeles)
+##  Kontakt
+vestle@tartunlp.ai
+
+## Loe rohkem
+Materjalid inglise keelses:
 - Chatbot Arena [artikkel](https://arxiv.org/abs/2403.04132), [blogipostitus](https://blog.lmarena.ai/blog/2023/arena/), [andmed](https://github.com/lm-sys/FastChat/blob/main/docs/dataset_release.md), [tingimused](https://blog.lmarena.ai/blog/2024/policy/)
 - LMSYS-Chat-1M andmestik [artikkel](https://arxiv.org/abs/2309.11998), LLM Judge [artikkel](https://arxiv.org/abs/2306.05685)
 
-## Kontakt
-- TBA
+#### Originaalautorid
+- tiimijuhid: [Wei-Lin Chiang](https://infwinston.github.io/), [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/)
+- tiimiliikmed: [Lianmin Zheng](https://lmzheng.net/), [Ying Sheng](https://sites.google.com/view/yingsheng/home), [Lisa Dunlap](https://www.lisabdunlap.com/), [Christopher Chou](https://www.linkedin.com/in/chrisychou), [Tianle Li](https://codingwithtim.github.io/), [Evan Frick](https://efrick2002.github.io/), [Dacheng Li](https://dachengli1.github.io/), [Siyuan Zhuang](https://www.linkedin.com/in/siyuanzhuang)
+- nõuandjad: [Ion Stoica](http://people.eecs.berkeley.edu/~istoica/), [Joseph E. Gonzalez](https://people.eecs.berkeley.edu/~jegonzal/), [Hao Zhang](https://cseweb.ucsd.edu/~haozhang/), [Trevor Darrell](https://people.eecs.berkeley.edu/~trevor/)
 
 """
     gr.Markdown(about_markdown, elem_id="about_markdown")

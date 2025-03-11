@@ -83,7 +83,7 @@ leader_component_values = [None] * 5
 def make_default_md_1(mirror=False):
     link_color = "#1976D2"  # This color should be clear in both light and dark mode
     leaderboard_md = f"""
-    # 🏆 Tulemused
+    # 🏆 Edetabel
     """
 
     return leaderboard_md
