@@ -354,16 +354,16 @@ register_model_info(
         "mistral-7B-Instruct-v0.3",
         "mistral-Nemo-Instruct-2407"
     ],
-    "Mixtral of experts",
+    "Mistral",
     "https://mistral.ai/news/mixtral-of-experts/",
-    "A Mixture-of-Experts model by Mistral AI",
+    "Mistral AI vabavaralised mudelid",
 )
 
 register_model_info(
     [
         "mixtral-8x7b-instruct-v0.1",
     ],
-    "Mixtral of Experts 8x7B",
+    "Mixtral of Experts",
     "https://mistral.ai/news/mixtral-of-experts/",
     "Mistral AI vabavaraline mudel",
 )
