@@ -79,7 +79,7 @@ def vote_last_response(states, vote_type, model_selectors, request: gr.Request):
     get_remote_logger().log(data)
 
     gr.Info(
-        "🎉 Aitäh hääletamast! Sinu valikute põhjal moodustub mudelite edetabel. Palun tee oma valik vastutustundlikult."
+        "🎉 Aitäh hindamast! Sinu tagasiside kujundab mudelite edetabeli - palun hääleta vastutustundlikult."
     )
     if ":" not in model_selectors[0]:
         for i in range(5):
@@ -647,26 +647,22 @@ function (a, b, c, d) {
                 message.style.width = Math.min(window.innerWidth - 32, 560) + 'px'
                 message.querySelector('.toast-icon').style.alignSelf = "baseline"
 
-
-                message.querySelector('.toast-title').innerText = "Kuidas valida"
+                let title = message.querySelector('.toast-title')
+                title.innerText = "Mida hinnata vastuse juures?"
+                title.style.textTransform = "none"
 
                 let text = message.querySelector('.toast-text')
                 text.style.paddingTop = "8px"
                 text.style.paddingLeft = "16px"
 
                 text.innerHTML = `
-<p>Mida hinnata vastuste juures:</p>
+<p>Abiks on järgmised küsimused:</p>
 <ul>
-  <li>Eelista vastuseid, mis on korrektses eesti keeles</li>
-  <li>Lisame siia hiljem veel infot, selle kohta, kuidas valida</li>
+  <li><span class='bold'>Kas vastus on korralikus eesti keeles?</span> Parim vastus on eestikeelne ning ei mõju masinlikult ega toortõlkeliselt.</li>
+  <li><span class='bold'>Kas vastus toetub faktidele?</span> Võimalusel kontrolli väidete õigsust. Kui teema on keeruline, hinda, kas mudel põhjendab oma vastust usutavalt.</li>
+  <li><span class='bold'>Kas vastus on selge ja asjakohane?</span> Mudel peaks vastama täpselt, ilma teemast kõrvale kaldumise ja ümmarguse jututa.</li>
+  <li><span class='bold'>Kas vastus on neutraalne ja tasakaalukas?</span> Mudel ei tohiks esitada tugevalt kallutatud arvamusi ega eksitavat infot, eriti tundlike teemade puhul.</li>
 </ul>
-<p>Pea silmas seda et: </p>
-<ol>
-  <li>Punkt 1</li>
-  <li>Punkt 2</li>
-  <li>Eriti <span class='bold'> oluline punkt </span></li>
-</ol>
-
             `}
         });
     }
