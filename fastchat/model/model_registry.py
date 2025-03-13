@@ -114,7 +114,10 @@ register_model_info(
         "gemini-1.5-flash-api-0514",
         "gemini-advanced-0514",
         "gemini-1.5-flash-002",
-        "gemini-1.5-pro-002"
+        "gemini-1.5-pro-002",
+        "gemini-1.5-flash-8b-001",
+        "gemini-2.0-flash-001",
+        "gemini-2.0-flash-lite-001"
     ],
     "Gemini",
     "https://deepmind.google/technologies/gemini/",
