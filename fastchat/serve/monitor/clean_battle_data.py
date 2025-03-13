@@ -93,6 +93,7 @@ def to_openai_format(messages):
 
 
 def replace_model_name(old_name, tstamp):
+    old_name = old_name.lower()
     replace_dict = {
         "bard": "palm-2",
         "claude-v1": "claude-1",
@@ -110,6 +111,11 @@ def replace_model_name(old_name, tstamp):
             return old_name + "-0314"
     if old_name in replace_dict:
         return replace_dict[old_name]
+    
+    if old_name in ["gemini-1.5-flash", "gemini-1.5-pro"]:
+        if tstamp < 1741332595:
+            return old_name + "-002"
+        
     return old_name
 
 
