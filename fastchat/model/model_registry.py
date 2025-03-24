@@ -170,6 +170,15 @@ register_model_info(
 
 register_model_info(
     [
+        "gemma-3-27b-it"
+    ],
+    "Gemma 3",
+    "https://blog.google/technology/developers/gemma-3/",
+    "Google Gemma 3 vabavaralised mudelid",
+)
+
+register_model_info(
+    [
         "claude-3-haiku-20240307",
         "claude-3-sonnet-20240229",
         "claude-3-opus-20240229",

@@ -64,6 +64,7 @@ ERROR_WORDS = [
     "API REQUEST ERROR. Please increase the number of max tokens.",
     "**API REQUEST ERROR** Reason: The response was blocked.",
     "**API REQUEST ERROR**",
+    "MIDAGI LÄKS VALESTI. PALUN VÄRSKENDA LEHEKÜLGE.",
 ]
 
 UNFINISHED_WORDS = [
