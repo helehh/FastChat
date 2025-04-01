@@ -567,7 +567,7 @@ register_model_info(
     ["nous-hermes-2-mixtral-8x7b-dpo", "hermes-3-Llama-3.1-8B"],
     "Nous-Hermes-2-Mixtral-8x7B-DPO",
     "https://huggingface.co/NousResearch/Nous-Hermes-2-Mixtral-8x7B-DPO",
-    "NousHermes'i vabavaraline mudel",
+    "NousResearch'i vabavaraline mudel",
 )
 
 
