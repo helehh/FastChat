@@ -30,6 +30,140 @@ def get_model_info(name: str) -> ModelInfo:
 
 register_model_info(
     [
+        "gpt-4o-2024-05-13",
+    ],
+    "GPT-4o",
+    "https://openai.com/index/hello-gpt-4o/",
+    "OpenAI mitteavalike mudelite lipulaev, mis mõistab nii kõne, pilti kui teksti",
+)
+
+register_model_info(
+    [
+        "gpt-4-turbo-2024-04-09",
+    ],
+    "GPT-4-Turbo",
+    "https://platform.openai.com/docs/models/gpt-4-and-gpt-4-turbo",
+    "OpenAI mitteavalik mudel",
+)
+
+register_model_info(
+    [
+        "llama-3.3-70b-instruct",
+
+    ],
+    "Llama 3.3",
+    "https://llama.meta.com/",
+    "Meta vabavaraliste mudelite pere",
+)
+
+register_model_info(
+    [
+        "llama-3.1-70b-instruct",
+    ],
+    "Llama 3.1",
+    "https://llama.meta.com/",
+    "Meta vabavaraliste mudelite pere",
+)
+
+register_model_info(
+    ["llama-3-70b-instruct", "llama-3-8b-instruct"],
+    "Llama 3",
+    "https://ai.meta.com/blog/meta-llama-3/",
+    "Meta vabavaraliste mudelite pere",
+)
+
+register_model_info(
+    [
+        "mistral-large-2411"
+    ],
+    "Mistral Large",
+    "https://huggingface.co/mistralai/",
+    "Mistral AI mitteavalik mudel",
+)
+
+register_model_info(
+    [
+        "mistral-7B-Instruct-v0.3",
+        "mistral-Nemo-Instruct-2407",
+        "mixtral-8x7b-instruct-v0.1",
+        "mistral-small-2503",
+    ],
+    "Mistral",
+    "https://huggingface.co/mistralai/",
+    "Mistral AI erinevad vabavaralised mudelid",
+)
+
+register_model_info(
+    ["nous-hermes-2-mixtral-8x7b-dpo", "hermes-3-Llama-3.1-8B"],
+    "Hermes",
+    "https://huggingface.co/NousResearch/",
+    "NousResearch'i erinevad vabavaralised mudelid",
+)
+
+register_model_info(
+    [
+        "gemini-2.0-flash-001",
+        "gemini-2.0-flash-lite-001"
+    ],
+    "Gemini 2",
+    "https://deepmind.google/technologies/gemini/",
+    "Google'i mitteavalike mudelite pere",
+)
+
+register_model_info(
+    [
+        "gemini-1.5-flash-002",
+        "gemini-1.5-pro-002",
+        "gemini-1.5-flash-8b-001",
+    ],
+    "Gemini 1.5",
+    "https://deepmind.google/technologies/gemini/",
+    "Google'i mitteavalike mudelite pere",
+)
+
+register_model_info(
+    [
+        "gemma-3-27b-it"
+    ],
+    "Gemma 3",
+    "https://blog.google/technology/developers/gemma-3/",
+    "Google'i vabavaraliste mudelite pere",
+)
+
+register_model_info(
+    [
+        "claude-3-7-sonnet-20250219"
+    ],
+    "Claude 3.7 Sonnet",
+    "hhttps://www.anthropic.com/news/claude-3-7-sonnet",
+    "Anthropicu mitteavalik mudel",
+)
+
+register_model_info(
+    [
+        "claude-3-5-sonnet-20240620", "claude-3-5-haiku-20241022", "claude-3-5-sonnet-20241022"
+    ],
+    "Claude 3.5",
+    "https://www.anthropic.com/news/claude-3-5-sonnet",
+    "Anthropicu mitteavalike mudelite pere",
+)
+
+register_model_info(
+    [
+        "claude-3-haiku-20240307",
+        "claude-3-sonnet-20240229",
+        "claude-3-opus-20240229",
+    ],
+    "Claude 3",
+    "https://www.anthropic.com/news/claude-3-family",
+    "Anthropicu mitteavalike mudelite pere",
+)
+
+
+
+
+register_model_info(
+    [
         "IEITYuan/Yuan2-2B-Janus-hf",
         "IEITYuan/Yuan2-2B-hf",
         "IEITYuan/Yuan2-51B-hf",
@@ -38,19 +172,6 @@ register_model_info(
     "IEIT-Yuan2",
     "https://github.com/IEIT-Yuan/Yuan-2.0",
     "Yuan2.0 is a new generation Fundamental Large Language Model developed by IEIT System.",
-)
-
-register_model_info(
-    [
-        "chatgpt-4o-latest",
-        "chatgpt-4o-latest-20240903",
-        "gpt-4o-mini-2024-07-18",
-        "gpt-4o-2024-08-06",
-        "gpt-4o-2024-05-13",
-    ],
-    "GPT-4o",
-    "https://openai.com/index/hello-gpt-4o/",
-    "OpenAI mitteavalike mudelite lipulaev, mis mõistab nii kõne, pilti kui teksti"
 )
 
 register_model_info(
@@ -65,24 +186,6 @@ register_model_info(
 
 register_model_info(
     [
-        "claude-3-5-sonnet-20240620", "claude-3-5-haiku-20241022", "claude-3-5-sonnet-20241022"
-    ],
-    "Claude 3.5",
-    "https://www.anthropic.com/news/claude-3-5-sonnet",
-    "Anthropicu mitteavalik mudel",
-)
-
-register_model_info(
-    [
-        "claude-3-7-sonnet-20250219"
-    ],
-    "Claude 3.7",
-    "hhttps://www.anthropic.com/news/claude-3-7-sonnet",
-    "Anthropicu mitteavalik mudel",
-)
-
-register_model_info(
-    [
         "llama-3.2-vision-90b-instruct",
         "llama-3.2-vision-11b-instruct",
         "llama-3.2-3b-instruct",
@@ -90,38 +193,11 @@ register_model_info(
         "llama-3.1-405b-instruct-bf16",
         "llama-3.1-405b-instruct-fp8",
         "llama-3.1-405b-instruct",
-        "llama-3.1-70b-instruct",
         "llama-3.1-8b-instruct",
-        "llama-3.3-70b-instruct",
-
     ],
     "Llama 3.1",
     "https://llama.meta.com/",
     "Meta vabavaralised mudelid",
-)
-
-register_model_info(
-    [
-        "gemini-1.5-pro-exp-0827",
-        "gemini-1.5-pro-exp-0801",
-        "gemini-1.5-flash-exp-0827",
-        "gemini-1.5-flash-8b-exp-0827",
-        "gemini-1.5-pro-api-0409-preview",
-        "gemini-1.5-pro-tuned",
-        "gemini-1.5-pro-api-preview",
-        "gemini-1.5-flash-api-preview",
-        "gemini-1.5-pro-api-0514",
-        "gemini-1.5-flash-api-0514",
-        "gemini-advanced-0514",
-        "gemini-1.5-flash-002",
-        "gemini-1.5-pro-002",
-        "gemini-1.5-flash-8b-001",
-        "gemini-2.0-flash-001",
-        "gemini-2.0-flash-lite-001"
-    ],
-    "Gemini",
-    "https://deepmind.google/technologies/gemini/",
-    "Google mitteavalikud mudelid",
 )
 
 register_model_info(
@@ -131,21 +207,6 @@ register_model_info(
     "Mistral",
     "https://mistral.ai/news/mistral-large-2407/",
     "Mistral Large 2",
-)
-
-register_model_info(
-    [
-        "gpt-4-turbo",
-        "gpt-4-turbo-2024-04-09",
-        "gpt-4-1106-preview",
-        "gpt-4-0125-preview",
-        "gpt2-chatbot",
-        "im-also-a-good-gpt2-chatbot",
-        "im-a-good-gpt2-chatbot",
-    ],
-    "GPT-4-Turbo",
-    "https://platform.openai.com/docs/models/gpt-4-and-gpt-4-turbo",
-    "OpenAI mitteavalik mudel",
 )
 
 register_model_info(
@@ -166,26 +227,6 @@ register_model_info(
     "Gemma 2",
     "https://ai.google.dev/gemma",
     "Gemma 2 by Google",
-)
-
-register_model_info(
-    [
-        "gemma-3-27b-it"
-    ],
-    "Gemma 3",
-    "https://blog.google/technology/developers/gemma-3/",
-    "Google Gemma 3 vabavaralised mudelid",
-)
-
-register_model_info(
-    [
-        "claude-3-haiku-20240307",
-        "claude-3-sonnet-20240229",
-        "claude-3-opus-20240229",
-    ],
-    "Claude 3",
-    "https://www.anthropic.com/news/claude-3-family",
-    "Anthropicu mitteavalik mudel",
 )
 
 register_model_info(
@@ -211,13 +252,6 @@ register_model_info(
     "Nemotron-4 340B",
     "https://huggingface.co/nvidia/Nemotron-4-340B-Instruct",
     "Cutting-edge Open model by Nvidia",
-)
-
-register_model_info(
-    ["llama-3-70b-instruct", "llama-3-8b-instruct"],
-    "Llama 3",
-    "https://ai.meta.com/blog/meta-llama-3/",
-    "Meta vabavaralised mudelid",
 )
 
 register_model_info(
@@ -352,32 +386,6 @@ register_model_info(
     "Mixtral of experts",
     "https://mistral.ai/news/mixtral-8x22b/",
     "A Mixture-of-Experts model by Mistral AI",
-)
-
-register_model_info(
-    [
-        "mistral-large-2402",
-        "mistral-large-2407",
-        "mistral-medium",
-        "mistral-next",
-        "mistral-7b-instruct-v0.2",
-        "mistral-7b-instruct",
-        "pixtral-12b-2409",
-        "mistral-7B-Instruct-v0.3",
-        "mistral-Nemo-Instruct-2407"
-    ],
-    "Mistral",
-    "https://mistral.ai/news/mixtral-of-experts/",
-    "Mistral AI vabavaralised mudelid",
-)
-
-register_model_info(
-    [
-        "mixtral-8x7b-instruct-v0.1",
-    ],
-    "Mixtral of Experts",
-    "https://mistral.ai/news/mixtral-of-experts/",
-    "Mistral AI vabavaraline mudel",
 )
 
 register_model_info(
@@ -561,13 +569,6 @@ register_model_info(
     "StripedHyena-Nous",
     "https://huggingface.co/togethercomputer/StripedHyena-Nous-7B",
     "A chat model developed by Together Research and Nous Research.",
-)
-
-register_model_info(
-    ["nous-hermes-2-mixtral-8x7b-dpo", "hermes-3-Llama-3.1-8B"],
-    "Nous-Hermes-2-Mixtral-8x7B-DPO",
-    "https://huggingface.co/NousResearch/Nous-Hermes-2-Mixtral-8x7B-DPO",
-    "NousResearch'i vabavaraline mudel",
 )
 
 
