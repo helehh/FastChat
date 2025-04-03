@@ -58,9 +58,13 @@ def compute_pairwise_win_fraction(battles, model_order, limit_show_number=None):
         battles, index="model_a", columns="model_b", aggfunc="size", fill_value=0
     )
 
+    all_models = list(set(num_battles_ptbl.index) | set(num_battles_ptbl.columns))
+    b_win_ptbl_T = b_win_ptbl.T.reindex(index=all_models, columns=all_models, fill_value=0)
+    a_win_ptbl = a_win_ptbl.reindex(index=all_models, columns=all_models, fill_value=0)
+
     # Computing the proportion of wins for each model as A and as B
     # against all other models
-    row_beats_col_freq = (a_win_ptbl + b_win_ptbl.T) / (
+    row_beats_col_freq = (a_win_ptbl + b_win_ptbl_T) / (
         num_battles_ptbl + num_battles_ptbl.T
     )
 
