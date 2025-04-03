@@ -102,6 +102,15 @@ register_model_info(
 
 register_model_info(
     [
+        "gemini-2.5-pro-exp-03-25"
+    ],
+    "Gemini 2.5 Pro (exp)",
+    "https://deepmind.google/technologies/gemini/",
+    "Google'i mitteavalik mudel",
+)
+
+register_model_info(
+    [
         "gemini-2.0-flash-001",
         "gemini-2.0-flash-lite-001"
     ],
@@ -123,7 +132,10 @@ register_model_info(
 
 register_model_info(
     [
-        "gemma-3-27b-it"
+        "gemma-3-27b-it",
+        "gemma-3-1b-it",
+        "gemma-3-4b-it",
+        "gemma-3-12b-it"
     ],
     "Gemma 3",
     "https://blog.google/technology/developers/gemma-3/",
