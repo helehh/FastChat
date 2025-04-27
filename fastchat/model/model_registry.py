@@ -132,10 +132,7 @@ register_model_info(
 
 register_model_info(
     [
-        "gemma-3-27b-it",
-        "gemma-3-1b-it",
-        "gemma-3-4b-it",
-        "gemma-3-12b-it"
+        "gemma-3-27b-it"
     ],
     "Gemma 3",
     "https://blog.google/technology/developers/gemma-3/",
@@ -170,6 +167,26 @@ register_model_info(
     "https://www.anthropic.com/news/claude-3-family",
     "Anthropicu mitteavalike mudelite pere",
 )
+
+register_model_info(
+    [
+        "grok-3-beta",
+        "grok-3-mini-beta",
+    ],
+    "Grok-3",
+    "https://x.ai/news/grok-3",
+    "xAI mitteavalite mudelite pere",
+)
+
+register_model_info(
+    [
+        "deepseek-chat",
+    ],
+    "DeepSeek V3",
+    "https://huggingface.co/deepseek-ai/DeepSeek-V3-0324",
+    "Deepseek'i vabavaraline mudel",
+)
+
 
 
 
