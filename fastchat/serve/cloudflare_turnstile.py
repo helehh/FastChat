@@ -1,21 +1,17 @@
-
-
 import requests
 
 # Cloudflare Turnstile keys
 TURNSTILE_SITE_KEY = "1x00000000000000000000BB"  # Site key
 TURNSTILE_SECRET_KEY = "1x0000000000000000000000000000000AA"  # Secret key
 
-CLOUDFLARE_VERIFICATION_FAILED_MESSAGE = '⚠️ PÄRINGU KONTROLL EBAÕNNESTUS'
+CLOUDFLARE_VERIFICATION_FAILED_MESSAGE = "⚠️ PÄRINGU KONTROLL EBAÕNNESTUS"
+
 
 def verify_turnstile(token):
     """Verify the Turnstile token with Cloudflare"""
     url = "https://challenges.cloudflare.com/turnstile/v0/siteverify"
-    data = {
-        "secret": TURNSTILE_SECRET_KEY,
-        "response": token
-    }
-    
+    data = {"secret": TURNSTILE_SECRET_KEY, "response": token}
+
     response = requests.post(url, data=data)
     result = response.json()
     return result

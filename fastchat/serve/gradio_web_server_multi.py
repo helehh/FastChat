@@ -11,7 +11,7 @@ from fastchat.serve.gradio_block_arena_anony import (
     load_demo_side_by_side_anony,
     set_global_vars_anony,
 )
-from fastchat.serve.cloudflare_turnstile import (cloudflare_turnstile_head_script)
+from fastchat.serve.cloudflare_turnstile import cloudflare_turnstile_head_script
 from fastchat.serve.gradio_block_arena_named import (
     build_side_by_side_ui_named,
     load_demo_side_by_side_named,
