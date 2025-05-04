@@ -20,6 +20,10 @@ from fastchat.constants import (
 )
 from fastchat.model.model_adapter import get_conversation_template
 from fastchat.serve.gradio_block_arena_named import flash_buttons
+from fastchat.serve.cloudflare_turnstile import (
+    verify_turnstile,
+    CLOUDFLARE_VERIFICATION_FAILED_MESSAGE
+)
 from fastchat.serve.gradio_web_server import (
     State,
     bot_response,
@@ -268,7 +272,7 @@ def get_battle_pair(
 
 
 def add_text(
-    state0, state1, model_selector0, model_selector1, text, request: gr.Request
+    state0, state1, model_selector0, model_selector1, text, turnstile_token, request: gr.Request
 ):
     ip = get_ip(request)
     logger.info(f"add_text (anony). ip: {ip}. len: {len(text)}")
@@ -290,6 +294,30 @@ def add_text(
             State(model_left),
             State(model_right),
         ]
+
+    if not states[0].cf_verified:
+        cf_verify_success=verify_turnstile(turnstile_token)
+
+        if cf_verify_success.get("success"):
+            states[0].cf_verified = True
+        else:
+            error_codes = cf_verify_success.get("error-codes", [])
+            logger.info(f"cf verification failed! ip: {ip}. error_codes={error_codes}")
+
+            gr.Warning(CLOUDFLARE_VERIFICATION_FAILED_MESSAGE)
+            
+            for i in range(num_sides):
+                states[i].skip_next = True # skips generate call in bot_response
+            return (
+                states
+                + [x.to_gradio_chatbot() for x in states]
+                + [text] # keeps user prompt
+                + [
+                    disable_btn,
+                ]
+                * 6
+                + [""]
+            )
 
     if len(text) <= 0:
         for i in range(num_sides):
@@ -498,7 +526,11 @@ def build_side_by_side_ui_anony(models):
             slow_warning = gr.Markdown("")
 
     with gr.Group(elem_id="fixed_footer"):
+        gr.HTML(value="<div id='turnstile-container'></div>", elem_id="turnstile-container")
+
         with gr.Row(elem_id="selection_buttons_row"):
+            token = gr.Textbox(visible=False, elem_id="turnstile-token")
+
             leftvote_btn = gr.Button(
                 value=" A on parem",
                 elem_classes="voting_button",
@@ -679,7 +711,7 @@ function (a, b, c, d) {
 
     textbox.submit(
         add_text,
-        states + model_selectors + [textbox],
+        states + model_selectors + [textbox, token],
         states + chatbots + [textbox] + btn_list + [slow_warning],
     ).then(
         bot_response_multi,
@@ -693,7 +725,7 @@ function (a, b, c, d) {
 
     send_btn.click(
         add_text,
-        states + model_selectors + [textbox],
+        states + model_selectors + [textbox, token],
         states + chatbots + [textbox] + btn_list + [slow_warning],
     ).then(
         bot_response_multi,

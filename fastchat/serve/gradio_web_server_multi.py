@@ -11,6 +11,7 @@ from fastchat.serve.gradio_block_arena_anony import (
     load_demo_side_by_side_anony,
     set_global_vars_anony,
 )
+from fastchat.serve.cloudflare_turnstile import (cloudflare_turnstile_head_script)
 from fastchat.serve.gradio_block_arena_named import (
     build_side_by_side_ui_named,
     load_demo_side_by_side_named,
@@ -161,13 +162,14 @@ def build_demo(
     else:
         load_js = get_window_url_params_js
 
-    head_js = """
+    head_js = f"""
 <link
   rel="icon"
   type="image/png"
   href="https://i.imgur.com/06AMu9U.png"
 />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+{cloudflare_turnstile_head_script}
 """
     if args.ga_id is not None:
         head_js += f"""
