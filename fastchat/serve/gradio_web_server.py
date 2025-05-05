@@ -1144,7 +1144,7 @@ Tehisaru baromeetril on kolm funktsiooni:
 2. **Andmete kogumine keelemudelite arendamiseks:** Iga antud hinnang ja küsimus aitab teadlastel koguda väärtuslikku sisendit, mida saab kasutada keelemudelite peenhäälestamiseks parema eesti keele toetuse eesmärgil.
 3. **TI-teadlikkuse tõstmine:** Baromeeter on hea võimalus katsetada erinevaid keelemudeleid, võrrelda vastuseid ning saada paremat aimu keelemudelite tugevustest ja nõrkustest just meie keelekeskkonnas.
 
-Kutsume kõiki huvilisi osalema! Iga klikiga aitad parandada eesti keele nähtavust tehisaru maailmas.
+Kutsume kõiki huvilisi osalema! Projekti esialgne eesmärk on koguda kokku 50 000 võrdlust (praegust häälte arvu näed edetabeli vahelehel). Iga klikiga aitad parandada eesti keele nähtavust tehisaru maailmas.
 
 **Kontakt:**  
 [baromeeter@tartunlp.ai](mailto:baromeeter@tartunlp.ai)
