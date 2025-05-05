@@ -104,7 +104,7 @@ def make_arena_leaderboard_md(arena_df, last_updated_time, vision=False):
     space = "&nbsp;&nbsp;&nbsp;"
 
     leaderboard_md = f"""
-Mudeleid kokku: **{total_models}**.{space} Hääli kokku: **{"{:,}".format(total_votes)}**.{space} Viimati uuendatud: {last_updated_time}.
+Mudeleid kokku: **{total_models}**.{space} Hääli kokku: **{"{:,} / 50 000".format(total_votes)}**.{space} Viimati uuendatud: {last_updated_time}.
 """
     return leaderboard_md
 
