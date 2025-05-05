@@ -1132,26 +1132,32 @@ def build_terms():
 
 def build_about():
     about_markdown = """
-# Meist
-Käesolev veebikeskkond ([vestle.tartunlp.ai](https://vestle.tartunlp.ai)) on avatud lähtekoodiga platvorm tehisarude hindamiseks kasutaja eelistuste abil. Algselt [California Ülikooli Berkeleys](https://sky.cs.berkeley.edu/) teadlaste ja mittetulundusorganisatsiooni [LMSYS](https://lmsys.org) loodud platvorm kohandasid eestikeelseks teadlased Tartu Ülikooli [keeletehnoloogia uurimisrühmast](https://tartunlp.ai). Projekti partnerid on Tartu Ülikool, TalTech, Tallinna Ülikool ning Eesti Keele Instituut.
+## Meist
 
-Platvorm täidab kahte eesmärki:
+**Tehisaru baromeeter** on Eesti teadlaste loodud platvorm, mille eesmärk on hinnata, kui hästi mõistavad ja kasutavad tänapäeva tehisarud eesti keelt. Veebilehel [baromeeter.ai](https://baromeeter.ai) saab võrrelda erinevate keelemudelite vastuseid ning aidata kaasa nende järjestamisele – ja seeläbi eesti keele ja meele hoidmisele tehisaru ajastul.
 
-1. Edetabel annab jooksva ülevaate sellest, millised tehisarud on eesti keeles kõige kvaliteetsemad.
-2. Hääletamise käigus kogutavate andmete abil on tulevikus võimalik õpetada tehisarusid paremini vastama.
+Platvormi arendavad koostöös Tartu Ülikool, Tallinna Tehnikaülikool, Tallinna Ülikool ja Eesti Keele Instituut. Tehisaru baromeeter tugineb avatud lähtekoodiga [ChatBotArena](https://lmarena.ai/) platvormile, mille töötasid välja California Ülikooli Berkeleys ja LMSYS teadlased. Algne platvorm on kohandatud emakeelseks, et paremini hinnata keelemudelite võimekust just eesti keeles.
 
-##  Kontakt
-vestle@tartunlp.ai
+Tehisaru baromeetril on kolm funktsiooni:
 
-## Loe rohkem
-Materjalid inglise keelses:
-- Chatbot Arena [artikkel](https://arxiv.org/abs/2403.04132), [blogipostitus](https://blog.lmarena.ai/blog/2023/arena/), [andmed](https://github.com/lm-sys/FastChat/blob/main/docs/dataset_release.md), [tingimused](https://blog.lmarena.ai/blog/2024/policy/)
-- LMSYS-Chat-1M andmestik [artikkel](https://arxiv.org/abs/2309.11998), LLM Judge [artikkel](https://arxiv.org/abs/2306.05685)
+1. **Reaalajas edetabel:** Kasutajate hinnangute põhjal kujuneb pidevalt uuenev järjestus, mis näitab, millised mudelid on eesti keeles kõige kvaliteetsemad. Edetabel peegeledab nii mudelite keeleoskust, faktiteadmisi, ohutust kui stiili ja iseloomu.
+2. **Andmete kogumine keelemudelite arendamiseks:** Iga antud hinnang ja küsimus aitab teadlastel koguda väärtuslikku sisendit, mida saab kasutada keelemudelite peenhäälestamiseks parema eesti keele toetuse eesmärgil.
+3. **TI-teadlikkuse tõstmine:** Baromeeter on hea võimalus katsetada erinevaid keelemudeleid, võrrelda vastuseid ning saada paremat aimu keelemudelite tugevustest ja nõrkustest just meie keelekeskkonnas.
 
-#### Originaalautorid
-- tiimijuhid: [Wei-Lin Chiang](https://infwinston.github.io/), [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/)
-- tiimiliikmed: [Lianmin Zheng](https://lmzheng.net/), [Ying Sheng](https://sites.google.com/view/yingsheng/home), [Lisa Dunlap](https://www.lisabdunlap.com/), [Christopher Chou](https://www.linkedin.com/in/chrisychou), [Tianle Li](https://codingwithtim.github.io/), [Evan Frick](https://efrick2002.github.io/), [Dacheng Li](https://dachengli1.github.io/), [Siyuan Zhuang](https://www.linkedin.com/in/siyuanzhuang)
-- nõuandjad: [Ion Stoica](http://people.eecs.berkeley.edu/~istoica/), [Joseph E. Gonzalez](https://people.eecs.berkeley.edu/~jegonzal/), [Hao Zhang](https://cseweb.ucsd.edu/~haozhang/), [Trevor Darrell](https://people.eecs.berkeley.edu/~trevor/)
+Kutsume kõiki huvilisi osalema! Iga klikiga aitad parandada eesti keele nähtavust tehisaru maailmas.
+
+**Kontakt:**  
+[baromeeter@tartunlp.ai](mailto:baromeeter@tartunlp.ai)
+
+**Meeskond:**  
+- Kairit Sirts (projektijuht)  
+- Hele-Andra Kuulmets 
+- Aleksei Dorkin
+- Krister Kruusmaa
+
+---
+
+Tehisaru baromeeter on loodud teadusprojekti [„Eesti keele toetus suurtes generatiivsetes vabavaralistes keelemudelites”](https://www.etis.ee/Portal/Projects/Display/a420f147-a693-4e0e-ad9f-0570862d6a9f) raames. Projekti rahastatakse riiklikust programmist „Eesti keeletehnoloogia 2018–2027"
 
 """
     gr.Markdown(about_markdown, elem_id="about_markdown")
