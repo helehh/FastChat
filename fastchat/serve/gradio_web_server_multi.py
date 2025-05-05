@@ -273,7 +273,7 @@ window.__gradio_mode__ = "app";
             with gr.Tab("ℹ️ Meist", id=4, elem_classes="tab-button"):
                 build_about()
 
-            with gr.Tab("📜 Kasutajatingimused", id=5):
+            with gr.Tab("📜 Kasutustingimused", id=5):
                 build_terms()
 
             build_logos("bottom")

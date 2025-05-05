@@ -71,7 +71,7 @@ use_remote_storage = False
 acknowledgment_md = """
 Kasutajad on kohustatud nõustuma järgmiste kasutustingimustega:
 
-Antud platvorm on loodud eelistusandmete ja juhiste kogumiseks parema eestikeelse tehisaru loomise eesmärgil. Kuigi kasutajate platvormile sisestatud tekst läbib automaatse modereerimise, ei ole see kahjuks täiuslik, mistõttu võivad mudelid genereerida solvavat sisu. Antut platvormi ei tohi kasutada ebaseadusliku, kedagi kahjustava, vägivaldse, rassistliku või seksuaalse sisuga teksti loomiseks. 
+Antud platvorm on loodud eelistusandmete ja juhiste kogumiseks parema eestikeelse tehisaru loomise eesmärgil. Kuigi kasutajate platvormile sisestatud tekst läbib automaatse modereerimise, ei ole see kahjuks täiuslik, mistõttu võivad mudelid genereerida solvavat sisu. Antud platvormi ei tohi kasutada ebaseadusliku, kedagi kahjustava, vägivaldse, rassistliku või seksuaalse sisuga teksti loomiseks. 
 Palun ära siseseta platvormile isiklikku informatsiooni. Platvorm kogub kasutajate vestlusandmeid ning jätab endale õiguse neid andmeid levitada Creative Commons Attribution (CC-BY) või sarnase litsentsi alusel. 
 """
 
