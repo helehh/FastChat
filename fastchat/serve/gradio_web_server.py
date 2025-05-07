@@ -1146,14 +1146,17 @@ Tehisaru baromeetril on kolm funktsiooni:
 
 Kutsume kõiki huvilisi osalema! Projekti esialgne eesmärk on koguda kokku 50 000 võrdlust (praegust häälte arvu näed edetabeli vahelehel). Iga klikiga aitad parandada eesti keele nähtavust tehisaru maailmas.
 
+**Meeskond:**  
+- Kairit Sirts (projektijuht), Tartu Ülikool
+- Hele-Andra Kuulmets, Tartu Ülikool
+- Aleksei Dorkin, Tartu Ülikool
+- Krister Kruusmaa, Tallinna Ülikool
+
+**Meediakajastused:**
+- [https://cs.ut.ee/et/uudis/aita-valja-valida-koige-paremini-eesti-keelt-oskav-tehisaru](https://cs.ut.ee/et/uudis/aita-valja-valida-koige-paremini-eesti-keelt-oskav-tehisaru)
+
 **Kontakt:**  
 [baromeeter@tartunlp.ai](mailto:baromeeter@tartunlp.ai)
-
-**Meeskond:**  
-- Kairit Sirts (projektijuht)  
-- Hele-Andra Kuulmets 
-- Aleksei Dorkin
-- Krister Kruusmaa
 
 ---
 
