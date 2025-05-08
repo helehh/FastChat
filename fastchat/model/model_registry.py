@@ -189,13 +189,21 @@ register_model_info(
 
 register_model_info(
     [
-        "EuroLLM-9B-Instruct"
+        "eurollm-9b-instruct"
     ],
     "EuroLLM-9B-Instruct",
     "https://huggingface.co/utter-project/EuroLLM-9B-Instruct",
     "Projekt UTTER'i vabavaraline mudel, mis oskab Euroopa liidus räägitavaid keeli",
 )
 
+register_model_info(
+    [
+        "llammas"
+    ],
+    "Llammas",
+    "https://huggingface.co/tartuNLP/Llammas",
+    "TartuNLP vabavaraline Llama 2'l põhinev mudel, mis oskab eesti keelt"
+)
 
 
 register_model_info(
