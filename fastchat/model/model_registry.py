@@ -187,7 +187,14 @@ register_model_info(
     "Deepseek'i vabavaraline mudel",
 )
 
-
+register_model_info(
+    [
+        "EuroLLM-9B-Instruct"
+    ],
+    "EuroLLM-9B-Instruct",
+    "https://huggingface.co/utter-project/EuroLLM-9B-Instruct",
+    "Projekt UTTER'i vabavaraline mudel, mis oskab Euroopa liidus räägitavaid keeli",
+)
 
 
 
