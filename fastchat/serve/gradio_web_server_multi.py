@@ -203,7 +203,7 @@ window.__gradio_mode__ = "app";
         button_secondary_background_fill_hover_dark="*secondary_700",
     )
     with gr.Blocks(
-        title="Keelemudelite edetabel",
+        title="Tehisaru baromeeter",
         theme=theme,
         css=block_css,
         head=head_js,

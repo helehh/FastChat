@@ -1140,7 +1140,7 @@ Platvormi arendavad koostöös Tartu Ülikool, Tallinna Tehnikaülikool, Tallinn
 
 Tehisaru baromeetril on kolm funktsiooni:
 
-1. **Reaalajas edetabel:** Kasutajate hinnangute põhjal kujuneb pidevalt uuenev järjestus, mis näitab, millised mudelid on eesti keeles kõige kvaliteetsemad. Edetabel peegeledab nii mudelite keeleoskust, faktiteadmisi, ohutust kui stiili ja iseloomu.
+1. **Regulaarselt uuenev edetabel:** Kasutajate hinnangute põhjal kujuneb pidevalt uuenev järjestus, mis näitab, millised mudelid on eesti keeles kõige kvaliteetsemad. Edetabel peegeledab nii mudelite keeleoskust, faktiteadmisi, ohutust kui stiili ja iseloomu.
 2. **Andmete kogumine keelemudelite arendamiseks:** Iga antud hinnang ja küsimus aitab teadlastel koguda väärtuslikku sisendit, mida saab kasutada keelemudelite peenhäälestamiseks parema eesti keele toetuse eesmärgil.
 3. **TI-teadlikkuse tõstmine:** Baromeeter on hea võimalus katsetada erinevaid keelemudeleid, võrrelda vastuseid ning saada paremat aimu keelemudelite tugevustest ja nõrkustest just meie keelekeskkonnas.
 

@@ -626,8 +626,7 @@ def build_arena_tab(
 
     gr.Markdown(
         f"""
-***Koht**: mudeli koht edetabelis näitab mudelite arvu, mis on antud mudelist statistiliselt paremad + 1.
-Mudel A on statistiliselt parem kui mudel B, kui A usaldusintervalli alumine piir on suurem kui B usaldusintervalli ülemine piir (95% usaldusintervall).<br>**Tabelist on puudu mudelid, milllel on hetkel veel liiga vähe hääli skoori arvutamiseks.
+*Mudelid võivad jagada sama kohta, isegi kui nende skoor on erinev, sest edetabeli koostamisel arvestatakse ka tulemuste ebakindlust. Kui mudelite skoorid jäävad üksteise usaldusintervallide sisse (95% UI), ei saa neid veel usaldusväärselt järjestada. Häälte lisandumisel usaldusintervallid kahanevad ja järjestus muutub täpsemaks.<br>**Tabelist on puudu mudelid, millel on hetkel veel liiga vähe hääli skoori arvutamiseks.
 """,
         elem_id="leaderboard_markdown",
     )
