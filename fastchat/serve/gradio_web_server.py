@@ -102,6 +102,7 @@ class State:
         self.is_vision = is_vision
         self.ans_models = []
         self.router_outputs = []
+        self.cf_verified = False
 
         # NOTE(chris): This could be sort of a hack since it assumes the user only uploads one image. If they can upload multiple, we should store a list of image hashes.
         self.has_csam_image = False
@@ -645,6 +646,10 @@ body:not(.dark) #input_box, #input_row {
 
 #input_box textarea {
     font-size: 16px;
+}
+
+body:not(.dark) #input_box textarea::placeholder {
+    color: #444;
 }
 
 body:not(.dark) #input_box textarea:not([disabled]) {
