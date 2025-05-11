@@ -310,7 +310,7 @@ def add_text(
             error_codes = cf_verify_success.get("error-codes", [])
             logger.info(f"cf verification failed! ip: {ip}. error_codes={error_codes}")
 
-            gr.Warning(CLOUDFLARE_VERIFICATION_FAILED_MESSAGE)
+            gr.Warning(CLOUDFLARE_VERIFICATION_FAILED_MESSAGE, 20)
 
             for i in range(num_sides):
                 states[i].skip_next = True  # skips generate call in bot_response
