@@ -535,9 +535,9 @@ def build_side_by_side_ui_anony(models):
         gr.HTML(
             value="<div id='turnstile-container'></div>", elem_id="turnstile-container"
         )
+        token = gr.Textbox(visible=False, elem_id="turnstile-token")
 
         with gr.Row(elem_id="selection_buttons_row"):
-            token = gr.Textbox(visible=False, elem_id="turnstile-token")
 
             leftvote_btn = gr.Button(
                 value=" A on parem",
