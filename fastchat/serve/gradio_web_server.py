@@ -822,7 +822,19 @@ button[disabled] {
     }
 }
 
+#turnstile-container {
+    background: white;
+}
+
 @media screen and (max-width: 640px) {
+
+    #turnstile-container {
+        position: fixed;
+        bottom: 6px;
+        left: 4px;
+        z-index: 26;
+        background: unset;
+    }
 
     .contributor_logos_top {
         display: none;

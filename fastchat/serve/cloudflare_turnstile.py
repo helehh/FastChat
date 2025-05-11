@@ -1,7 +1,7 @@
 import requests
 
 # Cloudflare Turnstile keys
-TURNSTILE_SITE_KEY = "1x00000000000000000000BB"  # Site key
+TURNSTILE_SITE_KEY = "1x00000000000000000000AA"  # Site key
 TURNSTILE_SECRET_KEY = "1x0000000000000000000000000000000AA"  # Secret key
 
 CLOUDFLARE_VERIFICATION_FAILED_MESSAGE = "⚠️ PÄRINGU KONTROLL EBAÕNNESTUS"
@@ -22,6 +22,7 @@ cloudflare_turnstile_head_script = f"""
 <script defer>
     function onTurnstileLoad() {{
         window.turnstile.render('#turnstile-container', {{
+            appearance: 'interaction-only',
             sitekey: '{TURNSTILE_SITE_KEY}',
             callback: function(token) {{
                 // Find the hidden JSON component and set its value
@@ -29,6 +30,10 @@ cloudflare_turnstile_head_script = f"""
             
                 hiddenInput.value = token;
                 hiddenInput.dispatchEvent(new Event("input", {{ bubbles: true }}));
+
+                console.log('cf token', token?.length )
+                
+                document.querySelector('#turnstile-container').style.display = 'none'
             }}
         }});
     }}
