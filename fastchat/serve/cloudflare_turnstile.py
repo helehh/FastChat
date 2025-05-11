@@ -33,7 +33,9 @@ cloudflare_turnstile_head_script = f"""
 
                 console.log('cf token', token?.length )
                 
-                document.querySelector('#turnstile-container').style.display = 'none'
+                setTimeout(() => {{
+                    document.querySelector('#turnstile-container').style.display = 'none'
+                }}, 1000)
             }}
         }});
     }}
