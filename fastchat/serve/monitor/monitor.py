@@ -14,6 +14,9 @@ import os
 import threading
 import time
 
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
 import pandas as pd
 import gradio as gr
 import numpy as np
@@ -435,7 +438,11 @@ def build_arena_tab(
 
     arena_dfs = {}
     category_elo_results = {}
-    last_updated_time = elo_results["full"]["last_updated_datetime"].split(" ")[0]
+    last_updated_time = " ".join(elo_results["full"]["last_updated_datetime"].split(" ")[:-1])
+    dt = datetime.strptime(last_updated_time, '%Y-%m-%d %H:%M:%S')
+    dt = dt.replace(tzinfo=ZoneInfo('America/Los_Angeles'))
+    dt_estonia = dt.astimezone(ZoneInfo('Europe/Tallinn'))
+    last_updated_time = dt_estonia.strftime('%Y-%m-%d %H:%M:%S')
 
     for k in key_to_category_name.keys():
         if k not in elo_results:
@@ -619,8 +626,7 @@ def build_arena_tab(
 
     gr.Markdown(
         f"""
-***Koht**: mudeli koht edetabelis näitab mudelite arvu, mis on antud mudelist statistiliselt paremad + 1.
-Mudel A on statistiliselt parem kui mudel B, kui A usaldusintervalli alumine piir on suurem kui B usaldusintervalli ülemine piir (95% usaldusintervall).
+*Mudelid võivad jagada sama kohta, isegi kui nende skoor on erinev, sest edetabeli koostamisel arvestatakse ka tulemuste ebakindlust. Kui mudelite skoorid jäävad üksteise usaldusintervallide sisse (95% UI), ei saa neid veel usaldusväärselt järjestada. Häälte lisandumisel usaldusintervallid kahanevad ja järjestus muutub täpsemaks.<br>**Tabelist on puudu mudelid, millel on hetkel veel liiga vähe hääli skoori arvutamiseks.
 """,
         elem_id="leaderboard_markdown",
     )

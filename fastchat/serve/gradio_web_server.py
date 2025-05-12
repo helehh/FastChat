@@ -71,7 +71,7 @@ use_remote_storage = False
 acknowledgment_md = """
 Kasutajad on kohustatud nõustuma järgmiste kasutustingimustega:
 
-Antud platvorm on loodud eelistusandmete ja juhiste kogumiseks parema eestikeelse tehisaru loomise eesmärgil. Kuigi kasutajate platvormile sisestatud tekst läbib automaatse modereerimise, ei ole see kahjuks täiuslik, mistõttu võivad mudelid genereerida solvavat sisu. Antut platvormi ei tohi kasutada ebaseadusliku, kedagi kahjustava, vägivaldse, rassistliku või seksuaalse sisuga teksti loomiseks. 
+Antud platvorm on loodud eelistusandmete ja juhiste kogumiseks parema eestikeelse tehisaru loomise eesmärgil. Kuigi kasutajate platvormile sisestatud tekst läbib automaatse modereerimise, ei ole see kahjuks täiuslik, mistõttu võivad mudelid genereerida solvavat sisu. Antud platvormi ei tohi kasutada ebaseadusliku, kedagi kahjustava, vägivaldse, rassistliku või seksuaalse sisuga teksti loomiseks. 
 Palun ära siseseta platvormile isiklikku informatsiooni. Platvorm kogub kasutajate vestlusandmeid ning jätab endale õiguse neid andmeid levitada Creative Commons Attribution (CC-BY) või sarnase litsentsi alusel. 
 """
 
@@ -1140,20 +1140,23 @@ Platvormi arendavad koostöös Tartu Ülikool, Tallinna Tehnikaülikool, Tallinn
 
 Tehisaru baromeetril on kolm funktsiooni:
 
-1. **Reaalajas edetabel:** Kasutajate hinnangute põhjal kujuneb pidevalt uuenev järjestus, mis näitab, millised mudelid on eesti keeles kõige kvaliteetsemad. Edetabel peegeledab nii mudelite keeleoskust, faktiteadmisi, ohutust kui stiili ja iseloomu.
+1. **Regulaarselt uuenev edetabel:** Kasutajate hinnangute põhjal kujuneb pidevalt uuenev järjestus, mis näitab, millised mudelid on eesti keeles kõige kvaliteetsemad. Edetabel peegeledab nii mudelite keeleoskust, faktiteadmisi, ohutust kui stiili ja iseloomu.
 2. **Andmete kogumine keelemudelite arendamiseks:** Iga antud hinnang ja küsimus aitab teadlastel koguda väärtuslikku sisendit, mida saab kasutada keelemudelite peenhäälestamiseks parema eesti keele toetuse eesmärgil.
 3. **TI-teadlikkuse tõstmine:** Baromeeter on hea võimalus katsetada erinevaid keelemudeleid, võrrelda vastuseid ning saada paremat aimu keelemudelite tugevustest ja nõrkustest just meie keelekeskkonnas.
 
 Kutsume kõiki huvilisi osalema! Projekti esialgne eesmärk on koguda kokku 50 000 võrdlust (praegust häälte arvu näed edetabeli vahelehel). Iga klikiga aitad parandada eesti keele nähtavust tehisaru maailmas.
 
+**Meeskond:**  
+- Kairit Sirts (projektijuht), Tartu Ülikool
+- Hele-Andra Kuulmets, Tartu Ülikool
+- Aleksei Dorkin, Tartu Ülikool
+- Krister Kruusmaa, Tallinna Ülikool
+
+**Meediakajastused:**
+- [https://cs.ut.ee/et/uudis/aita-valja-valida-koige-paremini-eesti-keelt-oskav-tehisaru](https://cs.ut.ee/et/uudis/aita-valja-valida-koige-paremini-eesti-keelt-oskav-tehisaru)
+
 **Kontakt:**  
 [baromeeter@tartunlp.ai](mailto:baromeeter@tartunlp.ai)
-
-**Meeskond:**  
-- Kairit Sirts (projektijuht)  
-- Hele-Andra Kuulmets 
-- Aleksei Dorkin
-- Krister Kruusmaa
 
 ---
 
