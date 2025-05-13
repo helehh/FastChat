@@ -453,16 +453,9 @@ def build_side_by_side_ui_anony(models):
                     <img width='22px' height='22px' style="margin-left: 6px; margin-top: 4px; height: 22px" src="https://i.imgur.com/06AMu9U.png"/>
                 </h2>
                 <ol>
-<<<<<<< HEAD
                     <li>Küsi eesti keeles</li>
                     <li>Vali parim vastus</li>
                     <li>Tutvu edetabeliga!</li>
-=======
-                    <li>Esita oma küsimus <b><u>eesti keeles</u></b>. Sulle vastavad kaks anonüümset juhuslikult valitud keelemudelit.</li>
-                    <li>Vali kahest vastusest parem. Kui sa kohe valida ei oska, jätka vestlust, kuni oled otsuseni jõudnud.</li>
-                    <li>Sinu panus aitab välja selgitada parimad eestikeelsed keelemudelid. Tutvu tulemustega sakis „Edetabel“.</li>
-                    <li>Tõetruu ülevaate saamiseks palume, et hindaksid mudeleid <b><u>vastutustundlikult</u></b>.</li>
->>>>>>> 6d2e76116a86a8e4bef524996346dd2ba232f759
                 </ol>
             </div>
             """,
