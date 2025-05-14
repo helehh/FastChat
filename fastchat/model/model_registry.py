@@ -59,6 +59,7 @@ register_model_info(
 register_model_info(
     [
         "llama-3.1-70b-instruct",
+        "meta-llama-3.1-405b-instruct"
     ],
     "Llama 3.1",
     "https://llama.meta.com/",
