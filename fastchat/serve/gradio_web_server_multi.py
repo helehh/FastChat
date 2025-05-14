@@ -168,6 +168,8 @@ def build_demo(
   href="https://i.imgur.com/06AMu9U.png"
 />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script defer data-domain="baromeeter.tartunlp.ai" src="https://plausible.io/js/script.outbound-links.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 """
     if args.ga_id is not None:
         head_js += f"""
