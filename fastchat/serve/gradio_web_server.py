@@ -1153,7 +1153,8 @@ Kutsume kõiki huvilisi osalema! Projekti esialgne eesmärk on koguda kokku 50 0
 - Krister Kruusmaa, Tallinna Ülikool
 
 **Meediakajastused:**
-- [https://cs.ut.ee/et/uudis/aita-valja-valida-koige-paremini-eesti-keelt-oskav-tehisaru](https://cs.ut.ee/et/uudis/aita-valja-valida-koige-paremini-eesti-keelt-oskav-tehisaru)
+- [https://cs.ut.ee/et/uudis/aita-valja-valida-koige-paremini-eesti-keelt-oskav-tehisaru](https://cs.ut.ee/et/uudis/aita-valja-valida-koige-paremini-eesti-keelt-oskav-tehisaru) *06.05.2025*
+- [https://digi.geenius.ee/blogi/keel-ja-tehnoloogia/krister-kruusmaa-tehisarust-eestlase-tegemisel-saab-igauks-oma-panuse-anda/](https://digi.geenius.ee/blogi/keel-ja-tehnoloogia/krister-kruusmaa-tehisarust-eestlase-tegemisel-saab-igauks-oma-panuse-anda/) *09.05.2025*
 
 **Kontakt:**  
 [baromeeter@tartunlp.ai](mailto:baromeeter@tartunlp.ai)
