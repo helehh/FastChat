@@ -59,6 +59,7 @@ register_model_info(
 register_model_info(
     [
         "llama-3.1-70b-instruct",
+        "meta-llama-3.1-405b-instruct"
     ],
     "Llama 3.1",
     "https://llama.meta.com/",
@@ -102,7 +103,9 @@ register_model_info(
 
 register_model_info(
     [
-        "gemini-2.5-pro-exp-03-25"
+        "gemini-2.5-pro-exp-03-25",
+        "gemini-2.5-pro-preview-05-06",
+        "gemini-2.5-flash-preview-04-17"
     ],
     "Gemini 2.5 Pro (exp)",
     "https://deepmind.google/technologies/gemini/",
