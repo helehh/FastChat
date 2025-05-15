@@ -17,7 +17,7 @@ SURVEY_LINK = """<div style='text-align: left; margin: 20px 0;'>
 
 ##### For the gradio web server
 SERVER_ERROR_MSG = (
-    "*MIDAGI LÄKS VALESTI. PALUN VÄRSKENDA LEHEKÜLGE.*"
+    "***Partneri tehisaru ei vastanud ootuspäraselt. Palun värskenda lehekülge ja proovime uuesti!***"
 )
 TEXT_MODERATION_MSG = (
     "$MODERATION$ YOUR TEXT VIOLATES OUR CONTENT MODERATION GUIDELINES."
