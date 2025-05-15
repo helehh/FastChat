@@ -278,6 +278,7 @@ def add_text(
     model_selector1,
     text,
     turnstile_token,
+    cf_verified,
     request: gr.Request,
 ):
     ip = get_ip(request)
@@ -301,13 +302,15 @@ def add_text(
             State(model_right),
         ]
 
-    if not states[0].cf_verified:
-        cf_verify_success = verify_turnstile(turnstile_token)
+    if not cf_verified:
+        logger.info(f"verifying cf turnstile. ip: {ip}")
 
-        if cf_verify_success.get("success"):
-            states[0].cf_verified = True
+        cf_verify_response = verify_turnstile(turnstile_token)
+
+        if cf_verify_response.get("success"):
+            cf_verified = True
         else:
-            error_codes = cf_verify_success.get("error-codes", [])
+            error_codes = cf_verify_response.get("error-codes", [])
             logger.info(f"cf verification failed! ip: {ip}. error_codes={error_codes}")
 
             gr.Warning(CLOUDFLARE_VERIFICATION_FAILED_MESSAGE, 20)
@@ -323,6 +326,7 @@ def add_text(
                 ]
                 * 6
                 + [""]
+                + [cf_verified]
             )
 
     if len(text) <= 0:
@@ -337,6 +341,7 @@ def add_text(
             ]
             * 6
             + [""]
+            + [cf_verified]
         )
 
     model_list = [states[i].model_name for i in range(num_sides)]
@@ -366,6 +371,7 @@ def add_text(
             ]
             * 6
             + [""]
+            + [cf_verified]
         )
 
     text = text[:BLIND_MODE_INPUT_CHAR_LEN_LIMIT]  # Hard cut-off
@@ -387,6 +393,7 @@ def add_text(
         ]
         * 6
         + [hint_msg]
+        + [cf_verified]
     )
 
 
@@ -477,6 +484,7 @@ def build_side_by_side_ui_anony(models):
     states = [gr.State() for _ in range(num_sides)]
     model_selectors = [None] * num_sides
     chatbots = [None] * num_sides
+    cf_verified = gr.State(False)
 
     gr.HTML(
         """
@@ -538,7 +546,6 @@ def build_side_by_side_ui_anony(models):
         token = gr.Textbox(visible=False, elem_id="turnstile-token")
 
         with gr.Row(elem_id="selection_buttons_row"):
-
             leftvote_btn = gr.Button(
                 value=" A on parem",
                 elem_classes="voting_button",
@@ -719,8 +726,8 @@ function (a, b, c, d) {
 
     textbox.submit(
         add_text,
-        states + model_selectors + [textbox, token],
-        states + chatbots + [textbox] + btn_list + [slow_warning],
+        states + model_selectors + [textbox, token, cf_verified],
+        states + chatbots + [textbox] + btn_list + [slow_warning] + [cf_verified],
     ).then(
         bot_response_multi,
         states + [temperature, top_p, max_output_tokens],
@@ -733,8 +740,8 @@ function (a, b, c, d) {
 
     send_btn.click(
         add_text,
-        states + model_selectors + [textbox, token],
-        states + chatbots + [textbox] + btn_list + [slow_warning],
+        states + model_selectors + [textbox, token, cf_verified],
+        states + chatbots + [textbox] + btn_list + [slow_warning] + [cf_verified],
     ).then(
         bot_response_multi,
         states + [temperature, top_p, max_output_tokens],
