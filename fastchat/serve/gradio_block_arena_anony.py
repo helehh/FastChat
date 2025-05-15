@@ -342,7 +342,7 @@ def add_text(
 
     hint_msg = ""
     for i in range(num_sides):
-        if "deluxe" in states[i].model_name:
+        if states[i].model_name in ["gemini-2.5-flash-preview-04-17", "gemini-2.5-pro-preview-05-06"]:
             hint_msg = SLOW_MODEL_MSG
     return (
         states
