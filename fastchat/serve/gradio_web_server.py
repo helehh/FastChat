@@ -821,8 +821,11 @@ button[disabled] {
     }
 }
 
-#turnstile-container {
+body:not(.dark) #turnstile-container {
     background: white;
+}
+body.dark #turnstile-container {
+    background: var(--background-fill-secondary);
 }
 
 @media screen and (max-width: 640px) {
