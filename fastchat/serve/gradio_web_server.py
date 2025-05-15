@@ -553,7 +553,7 @@ def bot_response(
                 # conv.update_last_message(output + html_code)
                 yield (state, state.to_gradio_chatbot()) + (disable_btn,) * 5
             else:
-                output = data["text"] + f"\n\n(error_code: {data['error_code']})"
+                output = f"{SERVER_ERROR_MSG}\n\n" + data["text"] + f"\n\n(error_code: {data['error_code']})"
                 conv.update_last_message(output)
                 yield (state, state.to_gradio_chatbot()) + (
                     disable_btn,

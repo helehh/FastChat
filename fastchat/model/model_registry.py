@@ -107,9 +107,9 @@ register_model_info(
         "gemini-2.5-pro-preview-05-06",
         "gemini-2.5-flash-preview-04-17"
     ],
-    "Gemini 2.5 Pro (exp)",
+    "Gemini 2.5 (preview)",
     "https://deepmind.google/technologies/gemini/",
-    "Google'i mitteavalik mudel",
+    "Google'i mitteavalikud mudelid",
 )
 
 register_model_info(

@@ -812,6 +812,7 @@ def gemini_api_stream_iter(
         except Exception as e:
             logger.error(f"==== error ====\n{e}")
             reason = chunk.candidates
+            logger.error(f"==== error reason ====\n{reason}")
             yield {
                 "text": f"**API REQUEST ERROR** Reason: {reason}.",
                 "error_code": 1,
