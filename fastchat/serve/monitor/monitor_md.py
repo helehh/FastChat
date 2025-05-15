@@ -102,10 +102,10 @@ def make_arena_leaderboard_md(arena_df, last_updated_time, vision=False):
     total_votes = sum(arena_df["num_battles"]) // 2
     total_models = len(arena_df)
     space = "&nbsp;&nbsp;&nbsp;"
+    total_votes_str = "{:,.0f}".format(total_votes).replace(",", " ")
 
     leaderboard_md = f"""
-Mudeleid kokku: **{total_models}**.{space} Hääli kokku: **{"{:,}".format(total_votes)}**.{space} Viimati uuendatud: {last_updated_time}.
-"""
+Mudeleid kokku: **{total_models}**.{space} Hääli kokku: **{total_votes_str} / 50 000**.{space} Tabelit uuendatakse regulaarselt. {space} Viimati uuendatud: {last_updated_time}."""
     return leaderboard_md
 
 

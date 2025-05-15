@@ -17,7 +17,7 @@ SURVEY_LINK = """<div style='text-align: left; margin: 20px 0;'>
 
 ##### For the gradio web server
 SERVER_ERROR_MSG = (
-    "*MIDAGI LÄKS VALESTI. PALUN VÄRSKENDA LEHEKÜLGE.*"
+    "***Partneri tehisaru ei vastanud ootuspäraselt. Palun värskenda lehekülge ja proovime uuesti!***"
 )
 TEXT_MODERATION_MSG = (
     "$MODERATION$ YOUR TEXT VIOLATES OUR CONTENT MODERATION GUIDELINES."
@@ -29,7 +29,7 @@ MODERATION_MSG = "SISEND EI VASTA MODEREERIMISREEGLITELE."
 CONVERSATION_LIMIT_MSG = "VESTLUSE PIKKUSE LIMIIT ON TÄIS. PALUN ALUSTA UUT VESTLUST."
 INACTIVE_MSG = "SESSIOON ON AEGUNUD. PALUN VÄRSKENDA LEHEKÜLGE."
 SLOW_MODEL_MSG = (
-    "⚠️  Models are thinking. Please stay patient as it may take over a minute."
+    "⚠️  Mudelid mõtlevad. Palun ole kannatlik — see võtab natukene aega."
 )
 RATE_LIMIT_MSG = "**RATE LIMIT OF THIS MODEL IS REACHED. PLEASE COME BACK LATER OR USE <span style='color: red; font-weight: bold;'>[BATTLE MODE](https://lmarena.ai)</span> (the 1st tab).**"
 # Maximum input length

@@ -168,6 +168,8 @@ def build_demo(
   type="image/png"
   href="https://i.imgur.com/06AMu9U.png"
 />
+<script defer data-domain="baromeeter.tartunlp.ai" src="https://plausible.io/js/script.outbound-links.js"></script>
+<script>window.plausible = window.plausible || function() {{ (window.plausible.q = window.plausible.q || []).push(arguments) }}</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 {cloudflare_turnstile_head_script}
 """
@@ -205,7 +207,7 @@ window.__gradio_mode__ = "app";
         button_secondary_background_fill_hover_dark="*secondary_700",
     )
     with gr.Blocks(
-        title="Keelemudelite edetabel",
+        title="Tehisaru baromeeter",
         theme=theme,
         css=block_css,
         head=head_js,
@@ -275,7 +277,7 @@ window.__gradio_mode__ = "app";
             with gr.Tab("ℹ️ Meist", id=4, elem_classes="tab-button"):
                 build_about()
 
-            with gr.Tab("📜 Kasutajatingimused", id=5):
+            with gr.Tab("📜 Kasutustingimused", id=5):
                 build_terms()
 
             build_logos("bottom")

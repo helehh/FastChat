@@ -382,7 +382,7 @@ def add_text(
 
     hint_msg = ""
     for i in range(num_sides):
-        if "deluxe" in states[i].model_name:
+        if states[i].model_name in ["gemini-2.5-flash-preview-04-17", "gemini-2.5-pro-preview-05-06"]:
             hint_msg = SLOW_MODEL_MSG
     return (
         states
@@ -494,12 +494,10 @@ def build_side_by_side_ui_anony(models):
                     TEHISARU BAROMEETER
                     <img width='22px' height='22px' style="margin-left: 6px; margin-top: 4px; height: 22px" src="https://i.imgur.com/06AMu9U.png"/>
                 </h2>
-                <h1>Aita valida parim eestikeelne tehisaru!</h1>
                 <ol>
-                    <li>Esita oma küsimus <b><u>eesti keeles</u></b>. Sulle vastavad kaks anonüümset keelemudelit.</li>
-                    <li>Vali kahest vastusest parem. Kui sa kohe valida ei oska, jätka vestlust, kuni oled otsuseni jõudnud.</li>
-                    <li>Sinu panus aitab välja selgitada parimad eestikeelsed keelemudelid. Tutvu tulemustega sakis „Edetabel“.</li>
-                    <li>Tõetruu ülevaate saamiseks palume, et hindaksid mudeleid <b><u>vastutustundlikult</u></b>.</li>
+                    <li>Küsi eesti keeles</li>
+                    <li>Vali parim vastus</li>
+                    <li>Tutvu edetabeliga!</li>
                 </ol>
             </div>
             """,
@@ -695,7 +693,7 @@ function (a, b, c, d) {
                 message.querySelector('.toast-icon').style.alignSelf = "baseline"
 
                 let title = message.querySelector('.toast-title')
-                title.innerText = "Mida hinnata vastuse juures?"
+                title.innerText = "Kuidas valida?"
                 title.style.textTransform = "none"
 
                 let text = message.querySelector('.toast-text')
@@ -710,6 +708,7 @@ function (a, b, c, d) {
   <li><span class='bold'>Kas vastus on selge ja asjakohane?</span> Mudel peaks vastama täpselt, ilma teemast kõrvale kaldumise ja ümmarguse jututa.</li>
   <li><span class='bold'>Kas vastus on neutraalne ja tasakaalukas?</span> Mudel ei tohiks esitada tugevalt kallutatud arvamusi ega eksitavat infot, eriti tundlike teemade puhul.</li>
 </ul>
+<p><b>Kui valik on keeruline, saad vestlust jätkata ning teha otsus pikema dialoogi põhjal!</b></p>
             `}
         });
     }

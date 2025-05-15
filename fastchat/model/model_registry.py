@@ -59,6 +59,7 @@ register_model_info(
 register_model_info(
     [
         "llama-3.1-70b-instruct",
+        "meta-llama-3.1-405b-instruct"
     ],
     "Llama 3.1",
     "https://llama.meta.com/",
@@ -102,11 +103,13 @@ register_model_info(
 
 register_model_info(
     [
-        "gemini-2.5-pro-exp-03-25"
+        "gemini-2.5-pro-exp-03-25",
+        "gemini-2.5-pro-preview-05-06",
+        "gemini-2.5-flash-preview-04-17"
     ],
-    "Gemini 2.5 Pro (exp)",
+    "Gemini 2.5 (preview)",
     "https://deepmind.google/technologies/gemini/",
-    "Google'i mitteavalik mudel",
+    "Google'i mitteavalikud mudelid",
 )
 
 register_model_info(
@@ -187,8 +190,23 @@ register_model_info(
     "Deepseek'i vabavaraline mudel",
 )
 
+register_model_info(
+    [
+        "eurollm-9b-instruct"
+    ],
+    "EuroLLM-9B-Instruct",
+    "https://huggingface.co/utter-project/EuroLLM-9B-Instruct",
+    "Projekt UTTER'i vabavaraline mudel, mis oskab Euroopa liidus räägitavaid keeli",
+)
 
-
+register_model_info(
+    [
+        "llammas"
+    ],
+    "Llammas",
+    "https://huggingface.co/tartuNLP/Llammas",
+    "TartuNLP vabavaraline Llama 2'l põhinev mudel, mis oskab eesti keelt"
+)
 
 
 register_model_info(
