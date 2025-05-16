@@ -65,6 +65,7 @@ ERROR_WORDS = [
     "**API REQUEST ERROR** Reason: The response was blocked.",
     "**API REQUEST ERROR**",
     "MIDAGI LÄKS VALESTI. PALUN VÄRSKENDA LEHEKÜLGE.",
+    "***Partneri tehisaru ei vastanud ootuspäraselt. Palun värskenda lehekülge ja proovime uuesti!***"
 ]
 
 UNFINISHED_WORDS = [
