@@ -23,8 +23,19 @@ def get_api_provider_stream_iter(
     top_p,
     max_new_tokens,
     state,
-):
-    if model_api_dict["api_type"] == "openai":
+): 
+    if model_api_dict["api_type"] == "qwen3":
+        prompt = conv.to_openai_api_messages()
+        stream_iter = qwen3_api_stream_iter(
+                    model_api_dict["model_name"],
+                    prompt,
+                    temperature,
+                    top_p,
+                    max_new_tokens,
+                    api_base=model_api_dict["api_base"],
+                    api_key=model_api_dict["api_key"],
+        )
+    elif model_api_dict["api_type"] == "openai":
         if model_api_dict.get("vision-arena", False):
             prompt = conv.to_openai_vision_api_messages()
         else:
@@ -262,6 +273,46 @@ def get_api_provider_stream_iter(
 
     return stream_iter
 
+def qwen3_api_stream_iter(
+    model_name,
+    messages,
+    temperature,
+    top_p,
+    max_new_tokens,
+    api_base=None,
+    api_key=None,
+    stream=True
+):
+    stream_generator = openai_api_stream_iter(model_name, messages, temperature, top_p, max_new_tokens, api_base, api_key, stream)
+    
+    inside_think_block = False
+    buffer = ""  # full accumulated OpenAI text
+    filtered_output = ""  # only visible text that we want to show
+
+    for data in stream_generator:
+        if data["error_code"] != 0:
+            yield data
+            continue
+
+        new_text = data["text"]
+        new_chunk = new_text[len(buffer):]  # only new part
+        buffer = new_text  # update the full buffer
+
+        i = 0
+        while i < len(new_chunk):
+            if not inside_think_block and new_chunk.startswith("<think>", i):
+                inside_think_block = True
+                i += len("<think>")
+            elif inside_think_block and new_chunk.startswith("</think>", i):
+                inside_think_block = False
+                i += len("</think>")
+            elif not inside_think_block:
+                filtered_output += new_chunk[i]
+                i += 1
+            else:
+                i += 1  # skip characters inside <think>...</think>
+
+        yield {"text": filtered_output, "error_code": 0}
 
 def openai_api_stream_iter(
     model_name,
