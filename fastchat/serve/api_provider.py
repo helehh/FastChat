@@ -810,6 +810,9 @@ def gemini_api_stream_iter(
 ):
     import google.generativeai as genai  # pip install google-generativeai
 
+    if model_name == "gemini-2.5-pro-preview-05-06" or model_name == "gemini-2.5-flash-preview-04-17":
+        max_new_tokens = 4000
+    
     if api_key is None:
         api_key = os.environ["GEMINI_API_KEY"]
     genai.configure(api_key=api_key)
