@@ -214,7 +214,7 @@ register_model_info(
     ],
     "Qwen 3",
     "https://huggingface.co/Qwen/Qwen3-235B-A22B",
-    "Qwen'i uusim vabavaraline mudel",
+    "Alibaba uusim vabavaraline mudel",
 )
 
 register_model_info(
@@ -224,7 +224,7 @@ register_model_info(
     ],
     "Qwen 2.5",
     "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
-    "Qwen'i vabavaraliste mudelite pere",
+    "Alibaba vabavaraliste mudelite pere",
 )
 
 
@@ -331,7 +331,6 @@ register_model_info(
 
 register_model_info(
     [
-        "qwen2.5-72b-instruct",
         "qwen2-72b-instruct",
         "qwen-max-0403",
         "qwen-max-0428",
