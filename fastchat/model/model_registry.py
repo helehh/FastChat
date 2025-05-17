@@ -208,6 +208,27 @@ register_model_info(
     "TartuNLP vabavaraline Llama 2'l põhinev mudel, mis oskab eesti keelt"
 )
 
+register_model_info(
+    [
+        "qwen3-235b-a22b",
+    ],
+    "Qwen 3",
+    "https://huggingface.co/Qwen/Qwen3-235B-A22B",
+    "Qwen'i uusim vabavaraline mudel",
+)
+
+register_model_info(
+    [
+
+        "qwen2.5-72b-instruct"
+    ],
+    "Qwen 2.5",
+    "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
+    "Qwen'i vabavaraliste mudelite pere",
+)
+
+
+
 
 register_model_info(
     [
