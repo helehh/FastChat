@@ -732,6 +732,10 @@ function (a, b, c, d) {
         states + [temperature, top_p, max_output_tokens],
         states + chatbots + btn_list,
     ).then(
+        lambda: gr.Markdown(""),
+        [],
+        [slow_warning],
+    ).then(
         flash_buttons,
         [],
         btn_list,
@@ -745,6 +749,10 @@ function (a, b, c, d) {
         bot_response_multi,
         states + [temperature, top_p, max_output_tokens],
         states + chatbots + btn_list,
+    ).then(
+        lambda: gr.Markdown(""),
+        [],
+        [slow_warning],
     ).then(
         flash_buttons, [], btn_list
     )
