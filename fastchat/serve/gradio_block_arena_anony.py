@@ -732,7 +732,7 @@ function (a, b, c, d) {
         states + [temperature, top_p, max_output_tokens],
         states + chatbots + btn_list,
     ).then(
-        lambda: gr.Markdown(""),
+        lambda: "",
         [],
         [slow_warning],
     ).then(
@@ -750,7 +750,7 @@ function (a, b, c, d) {
         states + [temperature, top_p, max_output_tokens],
         states + chatbots + btn_list,
     ).then(
-        lambda: gr.Markdown(""),
+        lambda: "",
         [],
         [slow_warning],
     ).then(
