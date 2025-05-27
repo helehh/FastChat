@@ -211,10 +211,11 @@ register_model_info(
 register_model_info(
     [
         "qwen3-235b-a22b",
+        "qwen3-32b"
     ],
     "Qwen 3",
     "https://huggingface.co/Qwen/Qwen3-235B-A22B",
-    "Alibaba uusim vabavaraline mudel",
+    "Alibaba uusim vabavaraliste mudelite pere mudel",
 )
 
 register_model_info(
