@@ -598,6 +598,7 @@ def build_arena_tab(
         #    )
         filter_checkbox = gr.CheckboxGroup(
                 ["ainult vabavaralised mudelid", "ainult kasutuses mudelid"],
+                value=["ainult kasutuses mudelid"],
                 label="",
                 info="",
                 elem_id="filter_checkbox",

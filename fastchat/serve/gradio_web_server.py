@@ -624,6 +624,82 @@ def bot_response(
 
 
 block_css = """
+body:not(.dark) #filters_row #filter_checkbox {
+    background-color: white;
+}
+
+body.dark #filters_row #filter_checkbox {
+    background-color: #0f0f0f;
+
+#filters_row .form {
+    border: none; 
+    box-shadow: none; 
+}
+
+#filters_row .block {
+    padding: 0; 
+}
+
+.wrap[data-testid="checkbox-group"] {
+    display: flex;
+}
+.wrap[data-testid="checkbox-group"] label {
+    border-top: 1px solid rgb(170, 170, 170);
+    border-right: 1px solid rgb(170, 170, 170);
+    border-bottom: 1px solid rgb(170, 170, 170);
+    border-left: 1px solid rgb(170, 170, 170);
+    flex: 1 1 230px;
+    max-width: 250px;
+}
+
+.wrap[data-testid="checkbox-group"] label span {
+    height: 23px;
+}
+
+body:not(.dark) .wrap[data-testid="checkbox-group"] label {
+    background: white;
+    color: var(--link-text-color);
+}
+
+body:not(.dark) .wrap[data-testid="checkbox-group"] label.selected {
+    background: white;
+    color: var(--link-text-color);
+}
+
+body:not(.dark) .wrap[data-testid="checkbox-group"] label:hover {
+    background: white;
+    color: var(--link-text-color);
+}
+
+body:not(.dark) .wrap[data-testid="checkbox-group"] input {
+    background-color: rgb(220, 220, 220);
+}
+
+
+body:not(.dark) .wrap[data-testid="checkbox-group"] input:hover {
+    background-color: rgb(220, 220, 220);
+}
+
+
+body .wrap[data-testid="checkbox-group"] input {
+    background: rgb(220, 220, 220); 
+}
+
+body .wrap[data-testid="checkbox-group"] input:hover {
+    background: rgb(220, 220, 220); 
+}
+
+body.dark .wrap[data-testid="checkbox-group"] label:hover {
+    background: #171717; 
+}
+
+body.dark .wrap[data-testid="checkbox-group"] label.selected {
+    background: #171717; 
+}
+
+body.dark .wrap[data-testid="checkbox-group"] label {
+    background: #171717; 
+}
 
 
 .prose {
