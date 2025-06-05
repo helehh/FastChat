@@ -95,7 +95,7 @@ register_model_info(
 )
 
 register_model_info(
-    ["nous-hermes-2-mixtral-8x7b-dpo", "hermes-3-Llama-3.1-8B"],
+    ["nous-hermes-2-mixtral-8x7b-dpo", "hermes-3-llama-3.1-8b"],
     "Hermes",
     "https://huggingface.co/NousResearch/",
     "NousResearch'i erinevad vabavaralised mudelid",
@@ -228,6 +228,47 @@ register_model_info(
     "Alibaba vabavaraliste mudelite pere",
 )
 
+register_model_info(
+    [
+
+        "salamandra-7b-instruct"
+    ],
+    "Salamandra",
+    "https://huggingface.co/BSC-LT/salamandra-7b-instruct",
+    "Barcelona Superarvutuskeskuse vabavaraline mudel, mis oskab Euroopa liidus räägitavaid keeli",
+)
+
+register_model_info(
+    [
+
+        "salamandra-7b-instruct"
+    ],
+    "Salamandra",
+    "https://huggingface.co/BSC-LT/salamandra-7b-instruct",
+    "Barcelona Superarvutuskeskuse vabavaraline mudel, mis oskab Euroopa liidus räägitavaid keeli",
+)
+
+
+register_model_info(
+    [
+
+        "teuken-7b-instruct-commercial-v0.4"
+    ],
+    "Teuken",
+    "https://huggingface.co/openGPT-X/Teuken-7B-instruct-commercial-v0.4",
+    "OpenGPT-X'i vabavaraline mudel, mis oskab Euroopa liidus räägitavaid keeli",
+)
+
+register_model_info(
+    [
+
+        "llama-4-scout-17b-16e-instruct",
+        "llama-4-maverick-17b-128e-instruct"
+    ],
+    "Llama 4",
+    "https://huggingface.co/collections/meta-llama/llama-4-67f0c30d9fe03840bc9d0164",
+    "Meta vabavaraliste mudelite pere",
+)
 
 
 
