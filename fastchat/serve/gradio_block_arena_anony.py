@@ -3,12 +3,19 @@ Chatbot Arena (battle) tab.
 Users chat with two anonymous models.
 """
 
+import os
 import json
 import time
 import re
+from pathlib import Path
 
 import gradio as gr
 import numpy as np
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
+from dotenv import load_dotenv
+
+load_dotenv()
 
 from fastchat.constants import (
     MODERATION_MSG,
@@ -50,6 +57,37 @@ num_sides = 2
 enable_moderation = False
 anony_names = ["", ""]
 models = []
+
+class OutageFileHandler(FileSystemEventHandler):
+
+    def __init__(self, json_path):
+        self.json_path = Path(json_path).resolve()
+        self.outage_models = []
+        self.load_config()
+        
+    def on_modified(self, event):
+        if not event.is_directory and Path(event.src_path).resolve() == self.json_path:
+            self.load_config()        
+    
+    def load_config(self):
+        if not self.json_path.exists():
+            self.outage_models = []
+            return
+
+        try:
+            with open(self.json_path, 'r') as f:
+                model_json = json.load(f)
+            self.outage_models = model_json.get("outage_models", [])
+            logger.info(f"Outage models reloaded from {self.json_path}!")
+        except Exception as e:
+            logger.warning(f"Error loading outage models from {self.json_path}: {e}")
+            self.outage_models = []
+
+
+outage_handler = OutageFileHandler("outage_models.json")
+observer = Observer()
+observer.schedule(outage_handler, path=".", recursive=False)
+observer.start()
 
 
 def set_global_vars_anony(enable_moderation_):
@@ -191,7 +229,7 @@ ANON_MODELS = []
 SAMPLING_BOOST_MODELS = []
 
 # outage models won't be sampled.
-OUTAGE_MODELS = ["DeepSeek-R1-Distill-Qwen-32B", "DeepSeek-R1-Distill-Qwen-1.5B"]
+# OUTAGE_MODELS = ["DeepSeek-R1-Distill-Qwen-32B", "DeepSeek-R1-Distill-Qwen-1.5B"]
 
 
 def get_sample_weight(model, outage_models, sampling_weights, sampling_boost_models=[]):
@@ -216,6 +254,8 @@ def is_model_match_pattern(model, patterns):
 def get_battle_pair(
     models, battle_targets, outage_models, sampling_weights, sampling_boost_models
 ):
+    
+
     if len(models) == 1:
         return models[0], models[0]
 
@@ -289,11 +329,12 @@ def add_text(
     # Init states if necessary
     if states[0] is None:
         assert states[1] is None
-
+        current_outage_models = outage_handler.outage_models
+        logger.info(f"current_outage_models: {current_outage_models}")
         model_left, model_right = get_battle_pair(
             models,
             BATTLE_TARGETS,
-            OUTAGE_MODELS,
+            current_outage_models,
             SAMPLING_WEIGHTS,
             SAMPLING_BOOST_MODELS,
         )

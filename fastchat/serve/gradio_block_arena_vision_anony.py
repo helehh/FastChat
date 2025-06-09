@@ -54,7 +54,7 @@ from fastchat.serve.gradio_block_arena_anony import (
     SAMPLING_WEIGHTS,
     BATTLE_TARGETS,
     SAMPLING_BOOST_MODELS,
-    OUTAGE_MODELS,
+    # OUTAGE_MODELS,
 )
 from fastchat.serve.gradio_block_arena_vision import (
     set_invisible_image,
