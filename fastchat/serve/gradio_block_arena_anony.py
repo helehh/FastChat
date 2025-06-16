@@ -547,7 +547,7 @@ def build_side_by_side_ui_anony(models):
 
     with gr.Group(elem_id="share-region-anony"):
         with gr.Accordion(
-            f"🔍 Kliki siia, et näha võrdluses olevaid mudeleid",
+            f"🔍 Kliki siia, et näha võrdluses olevaid mudeleid. 🔥Valikus uued mudelid!",
             open=False,
             elem_id="models_accordion",
         ):

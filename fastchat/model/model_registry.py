@@ -26,15 +26,25 @@ def get_model_info(name: str) -> ModelInfo:
         return ModelInfo(
             name, "", "Register the description at fastchat/model/model_registry.py"
         )
+    
+register_model_info(
+    [
+        "gpt-4.1-2025-04-14",
+    ],
+    "GPT-4.1",
+    "https://openai.com/index/gpt-4-1/",
+    "OpenAI mitteavalike mudelite lipulaev (🔥uus)",
+)
 
 
 register_model_info(
     [
         "gpt-4o-2024-05-13",
+        "gpt-4o-2024-11-20"
     ],
     "GPT-4o",
     "https://openai.com/index/hello-gpt-4o/",
-    "OpenAI mitteavalike mudelite lipulaev, mis mõistab nii kõne, pilti kui teksti",
+    "OpenAI mitteavalike mudelite pere (🔥uus versioon)",
 )
 
 register_model_info(
@@ -44,6 +54,17 @@ register_model_info(
     "GPT-4-Turbo",
     "https://platform.openai.com/docs/models/gpt-4-and-gpt-4-turbo",
     "OpenAI mitteavalik mudel",
+)
+
+register_model_info(
+    [
+
+        "llama-4-scout-17b-16e-instruct",
+        "llama-4-maverick-17b-128e-instruct"
+    ],
+    "Llama 4",
+    "https://huggingface.co/collections/meta-llama/llama-4-67f0c30d9fe03840bc9d0164",
+    "Meta vabavaraliste mudelite pere (🔥uus)",
 )
 
 register_model_info(
@@ -75,41 +96,14 @@ register_model_info(
 
 register_model_info(
     [
-        "mistral-large-2411"
-    ],
-    "Mistral Large",
-    "https://huggingface.co/mistralai/",
-    "Mistral AI mitteavalik mudel",
-)
-
-register_model_info(
-    [
-        "mistral-7B-Instruct-v0.3",
-        "mistral-Nemo-Instruct-2407",
-        "mixtral-8x7b-instruct-v0.1",
-        "mistral-small-2503",
-    ],
-    "Mistral",
-    "https://huggingface.co/mistralai/",
-    "Mistral AI erinevad vabavaralised mudelid",
-)
-
-register_model_info(
-    ["nous-hermes-2-mixtral-8x7b-dpo", "hermes-3-llama-3.1-8b"],
-    "Hermes",
-    "https://huggingface.co/NousResearch/",
-    "NousResearch'i erinevad vabavaralised mudelid",
-)
-
-register_model_info(
-    [
         "gemini-2.5-pro-exp-03-25",
         "gemini-2.5-pro-preview-05-06",
+        "gemini-2.5-pro-preview-06-05",
         "gemini-2.5-flash-preview-04-17"
     ],
     "Gemini 2.5 (preview)",
     "https://deepmind.google/technologies/gemini/",
-    "Google'i mitteavalikud mudelid",
+    "Google'i mitteavalikud mudelid (🔥uus versioon)",
 )
 
 register_model_info(
@@ -144,6 +138,16 @@ register_model_info(
 
 register_model_info(
     [
+        "claude-opus-4-20250514",
+        "claude-sonnet-4-20250514"
+    ],
+    "Claude 4",
+    "https://www.anthropic.com/news/claude-4",
+    "Anthropicu mitteavalike mudelite pere (🔥uus)",
+)
+
+register_model_info(
+    [
         "claude-3-7-sonnet-20250219"
     ],
     "Claude 3.7 Sonnet",
@@ -169,6 +173,27 @@ register_model_info(
     "Claude 3",
     "https://www.anthropic.com/news/claude-3-family",
     "Anthropicu mitteavalike mudelite pere",
+)
+
+register_model_info(
+    [
+        "mistral-large-2411"
+    ],
+    "Mistral Large",
+    "https://huggingface.co/mistralai/",
+    "Mistral AI mitteavalik mudel",
+)
+
+register_model_info(
+    [
+        "mistral-7B-Instruct-v0.3",
+        "mistral-Nemo-Instruct-2407",
+        "mixtral-8x7b-instruct-v0.1",
+        "mistral-small-2503",
+    ],
+    "Mistral",
+    "https://huggingface.co/mistralai/",
+    "Mistral AI erinevad vabavaralised mudelid",
 )
 
 register_model_info(
@@ -241,17 +266,6 @@ register_model_info(
 register_model_info(
     [
 
-        "salamandra-7b-instruct"
-    ],
-    "Salamandra",
-    "https://huggingface.co/BSC-LT/salamandra-7b-instruct",
-    "Barcelona Superarvutuskeskuse vabavaraline mudel, mis oskab Euroopa liidus räägitavaid keeli",
-)
-
-
-register_model_info(
-    [
-
         "teuken-7b-instruct-commercial-v0.4"
     ],
     "Teuken",
@@ -260,14 +274,10 @@ register_model_info(
 )
 
 register_model_info(
-    [
-
-        "llama-4-scout-17b-16e-instruct",
-        "llama-4-maverick-17b-128e-instruct"
-    ],
-    "Llama 4",
-    "https://huggingface.co/collections/meta-llama/llama-4-67f0c30d9fe03840bc9d0164",
-    "Meta vabavaraliste mudelite pere",
+    ["nous-hermes-2-mixtral-8x7b-dpo", "hermes-3-llama-3.1-8b"],
+    "Hermes",
+    "https://huggingface.co/NousResearch/",
+    "NousResearch'i erinevad vabavaralised mudelid",
 )
 
 
