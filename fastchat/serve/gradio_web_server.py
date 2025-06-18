@@ -630,6 +630,7 @@ body:not(.dark) #filters_row #filter_checkbox {
 
 body.dark #filters_row #filter_checkbox {
     background-color: #0f0f0f;
+}
 
 #filters_row .form {
     border: none; 

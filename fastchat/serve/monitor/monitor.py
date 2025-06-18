@@ -428,7 +428,7 @@ def build_arena_tab(
     model_table_df,
     default_md,
     vision=False,
-    show_plot=False,
+    show_plot=True,
 ):
     if elo_results is None:
         gr.Markdown(
@@ -462,17 +462,17 @@ def build_arena_tab(
             arena_overall_sc_df["num_battles"] > 300
         ]
 
-    def update_leaderboard_and_plots(filters, category = "Overall"):
-        def get_hidden_models(filters):
+    def get_hidden_models(filters):
             hidden_models = []
             if len(filters) == 0:
                 return None
-            if "ainult kasutuses mudelid" in filters:
+            if "peida vanad versioonid" in filters:
                 hidden_models += deprecated_model_name
-            if "ainult vabavaralised mudelid" in filters:
+            if "peida mitteavalikud mudelid" in filters:
                 hidden_models += closed_model_name
             return hidden_models
-
+    
+    def get_items_for_update(filters, category="Overall"):
         arena_subset_df = arena_dfs[category]
         arena_subset_df = arena_subset_df[arena_subset_df["num_battles"] > 300]
 
@@ -488,6 +488,12 @@ def build_arena_tab(
             hidden_models=hidden_models,
             is_overall=category == "Overall",
         )
+
+        return arena_values, elo_subset_results, arena_subset_df
+
+    def update_leaderboard(filters, category = "Overall"):
+        arena_values, elo_subset_results, arena_subset_df = get_items_for_update(filters, category)
+
         if category != "Overall":
             arena_values = update_leaderboard_df(arena_values)
             arena_values = gr.Dataframe(
@@ -549,6 +555,12 @@ def build_arena_tab(
                 wrap=True,
             )
 
+        return arena_values
+
+    def update_leaderboard_and_plots(filters, category = "Overall"):
+
+        arena_values, elo_subset_results, arena_subset_df = get_items_for_update(filters, category)
+
         p1 = elo_subset_results["win_fraction_heatmap"]
         p2 = elo_subset_results["battle_count_heatmap"]
         p3 = elo_subset_results["bootstrap_elo_rating"]
@@ -571,7 +583,7 @@ def build_arena_tab(
     arena_table_vals = get_arena_table(
         arena_df,
         model_table_df,
-        hidden_models=[],
+        hidden_models=deprecated_model_name,
         arena_subset_df=arena_overall_sc_df,
         is_overall=True,
     )
@@ -597,8 +609,8 @@ def build_arena_tab(
         #        info="",
         #    )
         filter_checkbox = gr.CheckboxGroup(
-                ["ainult vabavaralised mudelid", "ainult kasutuses mudelid"],
-                value=["ainult kasutuses mudelid"],
+                ["peida mitteavalikud mudelid", "peida vanad versioonid"],
+                value=["peida vanad versioonid"],
                 label="",
                 info="",
                 elem_id="filter_checkbox",
@@ -680,20 +692,17 @@ def build_arena_tab(
                     elem_id="plot-title",
                 )
                 plot_2 = gr.Plot(p2, show_label=False)
+            
+        return [plot_1, plot_2, plot_3, plot_4]
 
-        filter_checkbox.change(
-        update_leaderboard_and_plots,
+    filter_checkbox.change(
+        update_leaderboard,
         inputs=[filter_checkbox],
         outputs=[
-            elo_display_df,
-            plot_1,
-            plot_2,
-            plot_3,
-            plot_4,
-            more_stats_md,
+            elo_display_df
         ],
         )
-        return [plot_1, plot_2, plot_3, plot_4]
+
     return []
 
 
