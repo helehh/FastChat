@@ -468,7 +468,7 @@ def build_arena_tab(
                 return None
             if "peida vanad versioonid" in filters:
                 hidden_models += deprecated_model_name
-            if "peida mitteavalikud mudelid" in filters:
+            if "ainult avalikud mudelid" in filters:
                 hidden_models += closed_model_name
             return hidden_models
     
@@ -609,7 +609,7 @@ def build_arena_tab(
         #        info="",
         #    )
         filter_checkbox = gr.CheckboxGroup(
-                ["peida mitteavalikud mudelid", "peida vanad versioonid"],
+                ["ainult avalikud mudelid", "peida vanad versioonid"],
                 value=["peida vanad versioonid"],
                 label="",
                 info="",
