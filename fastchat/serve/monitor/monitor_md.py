@@ -5,11 +5,33 @@ import gradio as gr
 from fastchat.constants import SURVEY_LINK
 
 deprecated_model_name = [
-    "gemini-1.5-pro-exp-0801",
-    "gemini-1.5-pro-api-0409-preview",
-    "bard-jan-24-gemini-pro",
-    "chatgpt-4o-latest-20240808",
-    "chatgpt-4o-latest-20240903",
+    "gemini-2.5-pro-exp-03-25"
+]
+
+closed_model_name = [
+                    "gpt-4.1-2025-04-14",
+                    "gpt-4o-2024-11-20",
+                    "claude-sonnet-4-20250514"
+                    "claude-opus-4-20250514",
+                    "gemini-2.5-pro-preview-06-05",
+                    "gemini-2.5-pro-exp-03-25",
+                    "gemini-2.5-pro-preview-05-06",
+                    "grok-3-beta",
+                    "gemini-2.0-flash-001",
+                    "gpt-4o-2024-05-13",
+                    "gemini-2.5-flash-preview-04-17",
+                    "claude-3-5-sonnet-20241022",
+                    "claude-3-7-sonnet-20250219",
+                    "claude-3-opus-20240229",
+                    "gpt-4-turbo-2024-04-09",
+                    "gemini-2.0-flash-lite-001",
+                    "gemini-1.5-pro-002",
+                    "grok-3-mini-beta",
+                    "claude-3-5-haiku-20241022",
+                    "claude-3-haiku-20240307",
+                    "gemini-1.5-flash-002",
+                    "mistral-large-2411",
+                    "gemini-1.5-flash-8b-001"
 ]
 
 key_to_category_name = {

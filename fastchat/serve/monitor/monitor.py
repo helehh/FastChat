@@ -33,6 +33,7 @@ from fastchat.serve.monitor.monitor_md import (
     key_to_category_name,
     cat_name_to_explanation,
     deprecated_model_name,
+    closed_model_name,
     arena_hard_title,
     make_default_md_1,
     make_default_md_2,
@@ -405,9 +406,9 @@ def update_overall_leaderboard_df(arena_table_vals):
     def compare_func(row):
         if row["Rank (StyleCtrl)"] is None:
             return 0
-        if row["Rank (StyleCtrl)"] == row["Rank* (UB)"]:
+        if row["Rank (StyleCtrl)"] == row["Koht"]:
             return 0
-        elif row["Rank (StyleCtrl)"] < row["Rank* (UB)"]:
+        elif row["Rank (StyleCtrl)"] < row["Koht"]:
             return 1
         else:
             return -1
@@ -427,7 +428,7 @@ def build_arena_tab(
     model_table_df,
     default_md,
     vision=False,
-    show_plot=False,
+    show_plot=True,
 ):
     if elo_results is None:
         gr.Markdown(
@@ -452,7 +453,7 @@ def build_arena_tab(
 
     arena_df = arena_dfs["Overall"]
 
-    arena_overall_sc_df = None
+    arena_overall_sc_df = arena_df
     if "Overall w/ Style Control" in arena_dfs:
         arena_overall_sc_df = arena_dfs[
             "Overall w/ Style Control"
@@ -461,8 +462,17 @@ def build_arena_tab(
             arena_overall_sc_df["num_battles"] > 300
         ]
 
-    def update_leaderboard_and_plots(category):
-
+    def get_hidden_models(filters):
+            hidden_models = []
+            if len(filters) == 0:
+                return None
+            if "peida vanad versioonid" in filters:
+                hidden_models += deprecated_model_name
+            if "peida mitteavalikud mudelid" in filters:
+                hidden_models += closed_model_name
+            return hidden_models
+    
+    def get_items_for_update(filters, category="Overall"):
         arena_subset_df = arena_dfs[category]
         arena_subset_df = arena_subset_df[arena_subset_df["num_battles"] > 300]
 
@@ -470,15 +480,20 @@ def build_arena_tab(
 
         baseline_category = cat_name_to_baseline.get(category, "Overall")
         arena_df = arena_dfs[baseline_category]
+        hidden_models = get_hidden_models(filters)
         arena_values = get_arena_table(
             arena_df,
             model_table_df,
-            arena_subset_df=arena_subset_df
-            if category != "Overall"
-            else arena_overall_sc_df,
-            hidden_models=None,
+            arena_subset_df=arena_subset_df if category != "Overall" else arena_overall_sc_df,
+            hidden_models=hidden_models,
             is_overall=category == "Overall",
         )
+
+        return arena_values, elo_subset_results, arena_subset_df
+
+    def update_leaderboard(filters, category = "Overall"):
+        arena_values, elo_subset_results, arena_subset_df = get_items_for_update(filters, category)
+
         if category != "Overall":
             arena_values = update_leaderboard_df(arena_values)
             arena_values = gr.Dataframe(
@@ -540,6 +555,12 @@ def build_arena_tab(
                 wrap=True,
             )
 
+        return arena_values
+
+    def update_leaderboard_and_plots(filters, category = "Overall"):
+
+        arena_values, elo_subset_results, arena_subset_df = get_items_for_update(filters, category)
+
         p1 = elo_subset_results["win_fraction_heatmap"]
         p2 = elo_subset_results["battle_count_heatmap"]
         p3 = elo_subset_results["bootstrap_elo_rating"]
@@ -549,7 +570,7 @@ def build_arena_tab(
         leaderboard_md = make_category_arena_leaderboard_md(
             arena_df, arena_subset_df, name=category
         )
-        return arena_values, p1, p2, p3, p4, more_stats_md, leaderboard_md
+        return arena_values, p1, p2, p3, p4, more_stats_md
 
     arena_df = arena_dfs["Overall"]
 
@@ -574,7 +595,7 @@ def build_arena_tab(
     category_choices = list(arena_dfs.keys())
     category_choices = [x for x in category_choices if "Style Control" not in x]
 
-    with gr.Row():
+    with gr.Row(elem_id="filters_row"):
         #with gr.Column(scale=2):
         #    category_dropdown = gr.Dropdown(
         #        choices=category_choices,
@@ -587,12 +608,18 @@ def build_arena_tab(
         #        label="Apply filter",
         #        info="",
         #    )
-        default_category_details = make_category_arena_leaderboard_md(
-            arena_df, arena_df, name="Overall"
-        )
-        #with gr.Column(scale=3, variant="panel"):
-        #    category_deets = gr.Markdown(
-        #        default_category_details, elem_id="category_deets"
+        filter_checkbox = gr.CheckboxGroup(
+                ["peida mitteavalikud mudelid", "peida vanad versioonid"],
+                value=["peida vanad versioonid"],
+                label="",
+                info="",
+                elem_id="filter_checkbox",
+            )
+        #default_category_details = make_category_arena_leaderboard_md(
+        #    arena_df, arena_df, name="Overall"
+        #)
+        #category_deets = gr.Markdown(
+        #       default_category_details, elem_id="category_deets"
         #    )
 
     arena_vals = update_overall_leaderboard_df(arena_table_vals)
@@ -665,9 +692,17 @@ def build_arena_tab(
                     elem_id="plot-title",
                 )
                 plot_2 = gr.Plot(p2, show_label=False)
-    
-    
+            
         return [plot_1, plot_2, plot_3, plot_4]
+
+    filter_checkbox.change(
+        update_leaderboard,
+        inputs=[filter_checkbox],
+        outputs=[
+            elo_display_df
+        ],
+        )
+
     return []
 
 
