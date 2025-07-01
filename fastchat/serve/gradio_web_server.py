@@ -1254,6 +1254,7 @@ Kutsume kõiki huvilisi osalema! Projekti esialgne eesmärk on koguda kokku 50 0
 - [https://novaator.err.ee/1609699473/keelemudelid-voivad-eesti-keeles-anda-toest-kaugele-jaavaid-vastuseid](https://novaator.err.ee/1609699473/keelemudelid-voivad-eesti-keeles-anda-toest-kaugele-jaavaid-vastuseid) *20.05.2025*
 - [https://jupiter.err.ee/1609688162/terevisioon?t=1315]([https://jupiter.err.ee/1609688162/terevisioon?t=1315]) *20.05.2025*
 - [https://r2.err.ee/1609701368/tlu-lektor-krister-kruusmaa-baromeeter-ai-annab-tehisintellektile-vajalikud-peenhaalestusandmed/er](https://r2.err.ee/1609701368/tlu-lektor-krister-kruusmaa-baromeeter-ai-annab-tehisintellektile-vajalikud-peenhaalestusandmed/er) *22.05.2025*
+- [https://kultuur.err.ee/1609717077/keeleminutid-mida-naitab-tehisaru-baromeeter](https://kultuur.err.ee/1609717077/keeleminutid-mida-naitab-tehisaru-baromeeter) *09.06.2025*
 
 **Kontakt:**  
 [baromeeter@tartunlp.ai](mailto:baromeeter@tartunlp.ai)
