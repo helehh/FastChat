@@ -5,13 +5,15 @@ import gradio as gr
 from fastchat.constants import SURVEY_LINK
 
 deprecated_model_name = [
-    "gemini-2.5-pro-exp-03-25"
+    "gemini-2.5-pro-exp-03-25",
+    "gemini-2.5-pro-preview-05-06",
+    "gpt-4o-2024-05-13"
 ]
 
 closed_model_name = [
                     "gpt-4.1-2025-04-14",
                     "gpt-4o-2024-11-20",
-                    "claude-sonnet-4-20250514"
+                    "claude-sonnet-4-20250514",
                     "claude-opus-4-20250514",
                     "gemini-2.5-pro-preview-06-05",
                     "gemini-2.5-pro-exp-03-25",
