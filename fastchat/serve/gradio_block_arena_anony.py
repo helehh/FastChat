@@ -13,9 +13,6 @@ import gradio as gr
 import numpy as np
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
-from dotenv import load_dotenv
-
-load_dotenv()
 
 from fastchat.constants import (
     MODERATION_MSG,

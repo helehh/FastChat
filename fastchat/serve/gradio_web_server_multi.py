@@ -4,7 +4,11 @@ It supports chatting with a single model or chatting with two models side-by-sid
 """
 
 import argparse
+
 import gradio as gr
+from dotenv import load_dotenv
+
+load_dotenv()
 
 from fastchat.serve.gradio_block_arena_anony import (
     build_side_by_side_ui_anony,
