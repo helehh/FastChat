@@ -2,20 +2,20 @@
 The gradio demo server with multiple tabs.
 It supports chatting with a single model or chatting with two models side-by-side.
 """
-
+import os
 import argparse
 
 import gradio as gr
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv("./.env", verbose=True)
 
 from fastchat.serve.gradio_block_arena_anony import (
     build_side_by_side_ui_anony,
     load_demo_side_by_side_anony,
     set_global_vars_anony,
 )
-from fastchat.serve.cloudflare_turnstile import cloudflare_turnstile_head_script
+from fastchat.serve.cloudflare_turnstile import get_cloudflare_turnstile_head_script
 from fastchat.serve.gradio_block_arena_named import (
     build_side_by_side_ui_named,
     load_demo_side_by_side_named,
@@ -161,6 +161,7 @@ def load_demo(context: Context, request: gr.Request):
 def build_demo(
     context: Context, elo_results_file: str, leaderboard_table_file, arena_hard_table
 ):
+    turnstile_site_key = os.environ.get("TURNSTILE_SITE_KEY")
     if args.show_terms_of_use:
         load_js = get_window_url_params_with_tos_js
     else:
@@ -175,7 +176,7 @@ def build_demo(
 <script defer data-domain="baromeeter.tartunlp.ai" src="https://plausible.io/js/script.outbound-links.js"></script>
 <script>window.plausible = window.plausible || function() {{ (window.plausible.q = window.plausible.q || []).push(arguments) }}</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-{cloudflare_turnstile_head_script}
+{get_cloudflare_turnstile_head_script(turnstile_site_key)}
 """
     if args.ga_id is not None:
         head_js += f"""
