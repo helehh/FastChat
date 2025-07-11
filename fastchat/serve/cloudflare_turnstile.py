@@ -1,30 +1,30 @@
 import requests
-import os
-
-# Cloudflare Turnstile keys
-TURNSTILE_SITE_KEY = os.environ.get("TURNSTILE_SITE_KEY")  # Site key
-TURNSTILE_SECRET_KEY = os.environ.get("TURNSTILE_SECRET_KEY")  # Secret key
-
-CLOUDFLARE_VERIFICATION_FAILED_MESSAGE = "PÄRINGU KONTROLL EBAÕNNESTUS. PALUN PROOVI UUESTI VÕI VÄRSKENDA LEHEKÜLGE!"
 
 
-def verify_turnstile(token):
+def verify_turnstile(token, turnstile_secret_key: str):
     """Verify the Turnstile token with Cloudflare"""
+    if not turnstile_secret_key:
+        raise ValueError("TURNSTILE_SECRET_KEY is not set")
+    
     url = "https://challenges.cloudflare.com/turnstile/v0/siteverify"
-    data = {"secret": TURNSTILE_SECRET_KEY, "response": token}
+    data = {"secret": turnstile_secret_key, "response": token}
 
     response = requests.post(url, data=data)
     result = response.json()
     return result
 
 
-cloudflare_turnstile_head_script = f"""
+def get_cloudflare_turnstile_head_script(turnstile_site_key: str):
+    if not turnstile_site_key:
+        raise ValueError("TURNSTILE_SITE_KEY is not set")
+    
+    return f"""
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script defer>
     function onTurnstileLoad() {{
         window.turnstile.render('#turnstile-container', {{
             appearance: 'interaction-only',
-            sitekey: '{TURNSTILE_SITE_KEY}',
+            sitekey: '{turnstile_site_key}',
             callback: function(token) {{
                 // Find the hidden JSON component and set its value
                 const hiddenInput = document.querySelector('#turnstile-token textarea');    

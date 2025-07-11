@@ -20,14 +20,16 @@ dependencies = [
     "nh3",
     "numpy",
     "prompt_toolkit>=3.0.0",
-    "pydantic<3,>=2.0.0",
-    "pydantic-settings",
+    "pydantic==2.10.3",
+    "pydantic-settings==2.7.1",
+    "pydantic_core==2.27.1",
     "psutil",
     "requests",
     "rich>=10.0.0",
     "shortuuid",
     "tiktoken",
-    "uvicorn",
+    "uvicorn==0.32.1",
+    "tqdm",
     "watchdog"
 ]
 
@@ -36,7 +38,7 @@ model_worker = [
     "accelerate>=0.21",
     "peft",
     "sentencepiece",
-    "torch --index-url https://download.pytorch.org/whl/cpu",
+    "torch",
     "transformers>=4.31.0",
     "protobuf",
     "openai==1.57.2",
