@@ -26,6 +26,16 @@ def get_model_info(name: str) -> ModelInfo:
         return ModelInfo(
             name, "", "Register the description at fastchat/model/model_registry.py"
         )
+
+    
+register_model_info(
+    [
+        "kimi-k2-instruct",
+    ],
+    "Kimi K2",
+    "https://huggingface.co/moonshotai/Kimi-K2-Instruct",
+    "Moonshot AI vabavaraline mudel (🔥uus)",
+)
     
 register_model_info(
     [
@@ -99,7 +109,7 @@ register_model_info(
         "gemini-2.5-pro-exp-03-25",
         "gemini-2.5-pro-preview-05-06",
         "gemini-2.5-pro-preview-06-05",
-        "gemini-2.5-flash-preview-04-17"
+        "gemini-2.5-flash-preview-04-17",
     ],
     "Gemini 2.5 (preview)",
     "https://deepmind.google/technologies/gemini/",
@@ -129,7 +139,8 @@ register_model_info(
 
 register_model_info(
     [
-        "gemma-3-27b-it"
+        "gemma-3-27b-it",
+        "gemma-3-12b-it"
     ],
     "Gemma 3",
     "https://blog.google/technology/developers/gemma-3/",

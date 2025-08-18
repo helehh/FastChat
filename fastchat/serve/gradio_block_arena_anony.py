@@ -21,13 +21,11 @@ from fastchat.constants import (
     BLIND_MODE_INPUT_CHAR_LEN_LIMIT,
     CONVERSATION_TURN_LIMIT,
     SURVEY_LINK,
+    CLOUDFLARE_VERIFICATION_FAILED_MESSAGE,
 )
 from fastchat.model.model_adapter import get_conversation_template
 from fastchat.serve.gradio_block_arena_named import flash_buttons
-from fastchat.serve.cloudflare_turnstile import (
-    verify_turnstile,
-    CLOUDFLARE_VERIFICATION_FAILED_MESSAGE,
-)
+from fastchat.serve.cloudflare_turnstile import verify_turnstile
 from fastchat.serve.gradio_web_server import (
     State,
     bot_response,
@@ -322,6 +320,7 @@ def add_text(
     logger.info(f"add_text (anony). ip: {ip}. len: {len(text)}")
     states = [state0, state1]
     model_selectors = [model_selector0, model_selector1]
+    turnstile_secret_key = os.environ.get("TURNSTILE_SECRET_KEY")
 
     # Init states if necessary
     if states[0] is None:
@@ -342,8 +341,7 @@ def add_text(
 
     if not cf_verified:
         logger.info(f"verifying cf turnstile. ip: {ip}")
-
-        cf_verify_response = verify_turnstile(turnstile_token)
+        cf_verify_response = verify_turnstile(turnstile_token, turnstile_secret_key)
 
         if cf_verify_response.get("success"):
             cf_verified = True

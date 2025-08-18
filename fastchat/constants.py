@@ -5,6 +5,8 @@ Global constants.
 from enum import IntEnum
 import os
 
+CLOUDFLARE_VERIFICATION_FAILED_MESSAGE = "PÄRINGU KONTROLL EBAÕNNESTUS. PALUN PROOVI UUESTI VÕI VÄRSKENDA LEHEKÜLGE!"
+
 REPO_PATH = os.path.dirname(os.path.dirname(__file__))
 
 # Survey Link URL (to be removed) #00729c
