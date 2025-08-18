@@ -64,7 +64,7 @@ register_model_info(
     ],
     "Llama 4",
     "https://huggingface.co/collections/meta-llama/llama-4-67f0c30d9fe03840bc9d0164",
-    "Meta vabavaraliste mudelite pere (🔥uus)",
+    "Meta vabavaraliste mudelite pere",
 )
 
 register_model_info(
