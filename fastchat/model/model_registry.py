@@ -27,14 +27,13 @@ def get_model_info(name: str) -> ModelInfo:
             name, "", "Register the description at fastchat/model/model_registry.py"
         )
 
-    
 register_model_info(
     [
         "kimi-k2-instruct",
     ],
     "Kimi K2",
     "https://huggingface.co/moonshotai/Kimi-K2-Instruct",
-    "Moonshot AI vabavaraline mudel (🔥uus)",
+    "Moonshot AI avalik mudel",
 )
     
 register_model_info(
@@ -43,7 +42,7 @@ register_model_info(
     ],
     "GPT-4.1",
     "https://openai.com/index/gpt-4-1/",
-    "OpenAI mitteavalike mudelite lipulaev (🔥uus)",
+    "OpenAI mitteavalike mudelite lipulaev",
 )
 
 
@@ -54,7 +53,7 @@ register_model_info(
     ],
     "GPT-4o",
     "https://openai.com/index/hello-gpt-4o/",
-    "OpenAI mitteavalike mudelite pere (🔥uus versioon)",
+    "OpenAI mitteavalike mudelite pere",
 )
 
 register_model_info(
@@ -64,6 +63,24 @@ register_model_info(
     "GPT-4-Turbo",
     "https://platform.openai.com/docs/models/gpt-4-and-gpt-4-turbo",
     "OpenAI mitteavalik mudel",
+)
+
+register_model_info(
+    [
+        "kimi-k2-instruct",
+    ],
+    "Kimi K2",
+    "https://huggingface.co/moonshotai/Kimi-K2-Instruct",
+    "Moonshot AI avalik mudel",
+)
+
+register_model_info(
+    [
+        "llama-estllm-prototype-0825",
+    ],
+    "llama-estllm-prototype-0825 (🔥uus)",
+    "https://huggingface.co/tartuNLP/llama-estllm-protype-0825",
+    "TartuNLP avalik eestikeelsele sisule kohandatud Llama 3.1 mudel"
 )
 
 register_model_info(
@@ -113,7 +130,7 @@ register_model_info(
     ],
     "Gemini 2.5 (preview)",
     "https://deepmind.google/technologies/gemini/",
-    "Google'i mitteavalikud mudelid (🔥uus versioon)",
+    "Google'i mitteavalikud mudelid",
 )
 
 register_model_info(
@@ -154,7 +171,7 @@ register_model_info(
     ],
     "Claude 4",
     "https://www.anthropic.com/news/claude-4",
-    "Anthropicu mitteavalike mudelite pere (🔥uus)",
+    "Anthropicu mitteavalike mudelite pere",
 )
 
 register_model_info(
@@ -223,7 +240,7 @@ register_model_info(
     ],
     "DeepSeek V3",
     "https://huggingface.co/deepseek-ai/DeepSeek-V3-0324",
-    "Deepseek'i vabavaraline mudel",
+    "Deepseek'i avalik mudel",
 )
 
 register_model_info(
@@ -232,7 +249,7 @@ register_model_info(
     ],
     "EuroLLM-9B-Instruct",
     "https://huggingface.co/utter-project/EuroLLM-9B-Instruct",
-    "Projekt UTTER'i vabavaraline mudel, mis oskab Euroopa liidus räägitavaid keeli",
+    "Projekt UTTER'i avalik mudel, mis oskab Euroopa liidus räägitavaid keeli",
 )
 
 register_model_info(
@@ -241,7 +258,7 @@ register_model_info(
     ],
     "Llammas",
     "https://huggingface.co/tartuNLP/Llammas",
-    "TartuNLP vabavaraline Llama 2'l põhinev mudel, mis oskab eesti keelt"
+    "TartuNLP avalik Llama 2'l põhinev mudel, mis oskab eesti keelt"
 )
 
 register_model_info(
@@ -271,7 +288,7 @@ register_model_info(
     ],
     "Salamandra",
     "https://huggingface.co/BSC-LT/salamandra-7b-instruct",
-    "Barcelona Superarvutuskeskuse vabavaraline mudel, mis oskab Euroopa liidus räägitavaid keeli",
+    "Barcelona Superarvutuskeskuse avalik mudel, mis oskab Euroopa liidus räägitavaid keeli",
 )
 
 register_model_info(
@@ -281,7 +298,7 @@ register_model_info(
     ],
     "Teuken",
     "https://huggingface.co/openGPT-X/Teuken-7B-instruct-commercial-v0.4",
-    "OpenGPT-X'i vabavaraline mudel, mis oskab Euroopa liidus räägitavaid keeli",
+    "OpenGPT-X'i avalik mudel, mis oskab Euroopa liidus räägitavaid keeli",
 )
 
 register_model_info(
@@ -690,7 +707,7 @@ register_model_info(
     ["deepseek-llm-67b-chat", "DeepSeek-R1-Distill-Qwen-32B", "DeepSeek-R1-Distill-Qwen-1.5B"],
     "DeepSeek LLM",
     "https://huggingface.co/deepseek-ai/deepseek-llm-67b-chat",
-    "DeepSeeki vabavaraline mudel",
+    "DeepSeeki avalik mudel",
 )
 
 
