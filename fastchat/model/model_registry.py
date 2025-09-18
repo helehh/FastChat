@@ -29,6 +29,24 @@ def get_model_info(name: str) -> ModelInfo:
 
 register_model_info(
     [
+        "apertus-8b-instruct-2509",
+    ],
+    "Apertus-8B-Instruct-2509 (🔥uus)",
+    "https://huggingface.co/swiss-ai/Apertus-8B-Instruct-2509",
+    "Swiss AI Initiative'i avalik mudel"
+)
+
+register_model_info(
+    [
+        "llama-estllm-prototype-0825",
+    ],
+    "llama-estllm-prototype-0825 (🔥uus)",
+    "https://huggingface.co/tartuNLP/llama-estllm-protype-0825",
+    "TartuNLP avalik eestikeelsele sisule kohandatud mudel"
+)
+
+register_model_info(
+    [
         "kimi-k2-instruct",
     ],
     "Kimi K2",
@@ -76,22 +94,13 @@ register_model_info(
 
 register_model_info(
     [
-        "llama-estllm-prototype-0825",
-    ],
-    "llama-estllm-prototype-0825 (🔥uus)",
-    "https://huggingface.co/tartuNLP/llama-estllm-protype-0825",
-    "TartuNLP avalik eestikeelsele sisule kohandatud Llama 3.1 mudel"
-)
-
-register_model_info(
-    [
 
         "llama-4-scout-17b-16e-instruct",
         "llama-4-maverick-17b-128e-instruct"
     ],
     "Llama 4",
     "https://huggingface.co/collections/meta-llama/llama-4-67f0c30d9fe03840bc9d0164",
-    "Meta vabavaraliste mudelite pere",
+    "Meta avalike mudelite pere",
 )
 
 register_model_info(
@@ -101,7 +110,7 @@ register_model_info(
     ],
     "Llama 3.3",
     "https://llama.meta.com/",
-    "Meta vabavaraliste mudelite pere",
+    "Meta avalike mudelite pere",
 )
 
 register_model_info(
@@ -111,14 +120,14 @@ register_model_info(
     ],
     "Llama 3.1",
     "https://llama.meta.com/",
-    "Meta vabavaraliste mudelite pere",
+    "Meta avalike mudelite pere",
 )
 
 register_model_info(
     ["llama-3-70b-instruct", "llama-3-8b-instruct"],
     "Llama 3",
     "https://ai.meta.com/blog/meta-llama-3/",
-    "Meta vabavaraliste mudelite pere",
+    "Meta avalike mudelite pere",
 )
 
 register_model_info(
@@ -157,11 +166,12 @@ register_model_info(
 register_model_info(
     [
         "gemma-3-27b-it",
-        "gemma-3-12b-it"
+        "gemma-3-12b-it",
+        "gemma-3-4b-it"
     ],
     "Gemma 3",
     "https://blog.google/technology/developers/gemma-3/",
-    "Google'i vabavaraliste mudelite pere",
+    "Google'i avalike mudelite pere",
 )
 
 register_model_info(
@@ -221,7 +231,7 @@ register_model_info(
     ],
     "Mistral",
     "https://huggingface.co/mistralai/",
-    "Mistral AI erinevad vabavaralised mudelid",
+    "Mistral AI erinevad avalikud mudelid",
 )
 
 register_model_info(
@@ -268,7 +278,7 @@ register_model_info(
     ],
     "Qwen 3",
     "https://huggingface.co/Qwen/Qwen3-235B-A22B",
-    "Alibaba uusim vabavaraliste mudelite pere mudel",
+    "Alibaba uusim avalike mudelite pere",
 )
 
 register_model_info(
@@ -278,7 +288,7 @@ register_model_info(
     ],
     "Qwen 2.5",
     "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
-    "Alibaba vabavaraliste mudelite pere",
+    "Alibaba avalike mudelite pere",
 )
 
 register_model_info(
@@ -305,7 +315,7 @@ register_model_info(
     ["nous-hermes-2-mixtral-8x7b-dpo", "hermes-3-llama-3.1-8b"],
     "Hermes",
     "https://huggingface.co/NousResearch/",
-    "NousResearch'i erinevad vabavaralised mudelid",
+    "NousResearch'i erinevad avalikud mudelid",
 )
 
 
@@ -345,7 +355,7 @@ register_model_info(
     ],
     "Llama 3.1",
     "https://llama.meta.com/",
-    "Meta vabavaralised mudelid",
+    "Meta avalikud mudelid",
 )
 
 register_model_info(
