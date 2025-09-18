@@ -31,7 +31,7 @@ register_model_info(
     [
         "apertus-8b-instruct-2509",
     ],
-    "Apertus-8B-Instruct-2509 (🔥uus)",
+    "Apertus LLM (🔥uus)",
     "https://huggingface.co/swiss-ai/Apertus-8B-Instruct-2509",
     "Swiss AI Initiative'i avalik mudel"
 )
@@ -40,7 +40,7 @@ register_model_info(
     [
         "llama-estllm-prototype-0825",
     ],
-    "llama-estllm-prototype-0825 (🔥uus)",
+    "EstLLM prototype (🔥uus)",
     "https://huggingface.co/tartuNLP/llama-estllm-protype-0825",
     "TartuNLP avalik eestikeelsele sisule kohandatud mudel"
 )
@@ -167,7 +167,7 @@ register_model_info(
     [
         "gemma-3-27b-it",
         "gemma-3-12b-it",
-        "gemma-3-4b-it"
+        "gemma-3-4b-it",
     ],
     "Gemma 3",
     "https://blog.google/technology/developers/gemma-3/",
