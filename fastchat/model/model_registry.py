@@ -53,6 +53,15 @@ register_model_info(
     "https://huggingface.co/moonshotai/Kimi-K2-Instruct",
     "Moonshot AI avalik mudel",
 )
+
+register_model_info(
+    [
+        "gpt-5-2025-08-07",
+    ],
+    "GPT-5",
+    "https://openai.com/gpt-5/",
+    "OpenAI mitteavalik mudel (🔥uus)",
+)
     
 register_model_info(
     [
@@ -60,7 +69,7 @@ register_model_info(
     ],
     "GPT-4.1",
     "https://openai.com/index/gpt-4-1/",
-    "OpenAI mitteavalike mudelite lipulaev",
+    "OpenAI mitteavalik mudel",
 )
 
 

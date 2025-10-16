@@ -73,6 +73,18 @@ def get_api_provider_stream_iter(
             api_key=model_api_dict["api_key"],
             is_o1=True,
         )
+    elif model_api_dict["api_type"] == "openai_gpt5":
+        prompt = conv.to_openai_api_messages()
+        stream_iter = openai_api_stream_iter(
+            model_api_dict["model_name"],
+            prompt,
+            temperature,
+            top_p,
+            max_new_tokens,
+            api_base=model_api_dict["api_base"],
+            api_key=model_api_dict["api_key"],
+            is_gpt5=True,
+        )
     elif model_api_dict["api_type"] == "openai_assistant":
         last_prompt = conv.messages[-2][1]
         stream_iter = openai_assistant_api_stream_iter(
@@ -324,6 +336,7 @@ def openai_api_stream_iter(
     api_key=None,
     stream=True,
     is_o1=False,
+    is_gpt5=False,
 ):
     import openai
 
@@ -364,7 +377,7 @@ def openai_api_stream_iter(
     }
     logger.info(f"==== request ====\n{gen_params}")
 
-    if stream and not is_o1:
+    if stream and not is_o1 and not is_gpt5:
         res = client.chat.completions.create(
             model=model_name,
             messages=messages,
@@ -388,6 +401,15 @@ def openai_api_stream_iter(
                 messages=messages,
                 temperature=1.0,
                 stream=False,
+            )
+        elif is_gpt5:
+            res = client.chat.completions.create(
+                model=model_name,
+                messages=messages,
+                reasoning_effort="minimal",
+                max_completion_tokens=max_new_tokens,
+                stream=False,
+                verbosity="medium"
             )
         else:
             res = client.chat.completions.create(
