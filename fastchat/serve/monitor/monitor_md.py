@@ -11,7 +11,7 @@ deprecated_model_name = [
 ]
 
 closed_model_name = [
-                    "gpt-5-2025-08-07"
+                    "gpt-5-2025-08-07",
                     "gpt-4.1-2025-04-14",
                     "gpt-4o-2024-11-20",
                     "claude-sonnet-4-20250514",
