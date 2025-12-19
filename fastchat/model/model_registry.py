@@ -31,16 +31,25 @@ register_model_info(
     [
         "apertus-8b-instruct-2509",
     ],
-    "Apertus LLM (🔥uus)",
+    "Apertus LLM",
     "https://huggingface.co/swiss-ai/Apertus-8B-Instruct-2509",
     "Swiss AI Initiative'i avalik mudel"
 )
 
 register_model_info(
     [
+        "gpt-5-2025-08-07",
+    ],
+    "GPT-5",
+    "https://openai.com/gpt-5/",
+    "OpenAI mitteavalik mudel",
+)
+
+register_model_info(
+    [
         "llama-estllm-prototype-0825",
     ],
-    "EstLLM prototype (🔥uus)",
+    "EstLLM prototype",
     "https://huggingface.co/tartuNLP/llama-estllm-protype-0825",
     "TartuNLP avalik eestikeelsele sisule kohandatud mudel"
 )
@@ -52,15 +61,6 @@ register_model_info(
     "Kimi K2",
     "https://huggingface.co/moonshotai/Kimi-K2-Instruct",
     "Moonshot AI avalik mudel",
-)
-
-register_model_info(
-    [
-        "gpt-5-2025-08-07",
-    ],
-    "GPT-5",
-    "https://openai.com/gpt-5/",
-    "OpenAI mitteavalik mudel (🔥uus)",
 )
     
 register_model_info(
