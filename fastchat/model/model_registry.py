@@ -49,8 +49,27 @@ register_model_info(
     [
         "llama-estllm-prototype-0825",
     ],
-    "EstLLM prototype",
+    "EstLLM (llama) prototüüp 0825",
     "https://huggingface.co/tartuNLP/llama-estllm-protype-0825",
+    "TartuNLP avalikeestikeelsele sisule kohandatud mudel"
+)
+
+register_model_info(
+    [
+        "llama-estllm-prototype-1125",
+    ],
+    "EstLLM (Llama) prototüüp 1125 (🔥uus)",
+    "https://huggingface.co/tartuNLP/llama-estllm-protype-1125",
+    "TartuNLP avalik eestikeelsele sisule kohandatud mudel"
+)
+
+
+register_model_info(
+    [
+        "apertus-estllm-prototype-1125",
+    ],
+    "EstLLM (Apertus) prototüüp 1125 (🔥uus)",
+    "https://huggingface.co/tartuNLP/llama-estllm-protype-1125",
     "TartuNLP avalik eestikeelsele sisule kohandatud mudel"
 )
 
@@ -141,6 +160,16 @@ register_model_info(
 
 register_model_info(
     [
+        "gemini-3-flash-preview",
+        "gemini-3-pro-preview",
+    ],
+    "gemini-3 (preview) (🔥uus)",
+    "https://deepmind.google/models/gemini/3",
+    "Google'i mitteavalikud mudelid",
+)
+
+register_model_info(
+    [
         "gemini-2.5-pro-exp-03-25",
         "gemini-2.5-pro-preview-05-06",
         "gemini-2.5-pro-preview-06-05",
@@ -190,6 +219,17 @@ register_model_info(
     ],
     "Claude 4",
     "https://www.anthropic.com/news/claude-4",
+    "Anthropicu mitteavalike mudelite pere",
+)
+
+register_model_info(
+    [
+        "claude-sonnet-4-5-20250929",
+        "claude-opus-4-5-20251101",
+        "claude-haiku-4-5-20251001",
+    ],
+    "Claude 4.5 (🔥uus)",
+    "https://www.anthropic.com/news/claude-sonnet-4-5",
     "Anthropicu mitteavalike mudelite pere",
 )
 
