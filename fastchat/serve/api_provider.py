@@ -106,8 +106,13 @@ def get_api_provider_stream_iter(
             prompt = conv.to_anthropic_vision_api_messages()
         else:
             prompt = conv.to_openai_api_messages()
-        stream_iter = anthropic_message_api_stream_iter(
-            model_api_dict["model_name"], prompt, temperature, top_p, max_new_tokens
+            if "-4-5-" in model_name:
+                stream_iter = anthropic_message_api_stream_iter(
+            model_name, prompt, temperature, top_p, max_new_tokens, use_top_p=False
+        )
+            else:
+                stream_iter = anthropic_message_api_stream_iter(
+                    model_name, prompt, temperature, top_p, max_new_tokens
         )
     elif model_api_dict["api_type"] == "anthropic_message_vertex":
         if model_api_dict.get("vision-arena", False):
@@ -757,6 +762,7 @@ def anthropic_message_api_stream_iter(
     top_p,
     max_new_tokens,
     vertex_ai=False,
+    use_top_p=True,
 ):
     import anthropic
 
@@ -804,21 +810,38 @@ def anthropic_message_api_stream_iter(
         messages = messages[1:]
 
     text = ""
-    with client.messages.stream(
-        temperature=temperature,
-        top_p=top_p,
-        max_tokens=max_new_tokens,
-        messages=messages,
-        model=model_name,
-        system=system_prompt,
-    ) as stream:
-        for chunk in stream.text_stream:
-            text += chunk
-            data = {
-                "text": text,
-                "error_code": 0,
-            }
-            yield data
+
+    if use_top_p:
+        with client.messages.stream(
+            temperature=temperature,
+            top_p=top_p,
+            max_tokens=max_new_tokens,
+            messages=messages,
+            model=model_name,
+            system=system_prompt,
+        ) as stream:
+            for chunk in stream.text_stream:
+                text += chunk
+                data = {
+                    "text": text,
+                    "error_code": 0,
+                }
+                yield data
+    else:
+        with client.messages.stream(
+            temperature=temperature,
+            max_tokens=max_new_tokens,
+            messages=messages,
+            model=model_name,
+            system=system_prompt,
+        ) as stream:
+            for chunk in stream.text_stream:
+                text += chunk
+                data = {
+                    "text": text,
+                    "error_code": 0,
+                }
+                yield data
 
 
 def gemini_api_stream_iter(
