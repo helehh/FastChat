@@ -7,7 +7,10 @@ from fastchat.constants import SURVEY_LINK
 deprecated_model_name = [
     "gemini-2.5-pro-exp-03-25",
     "gemini-2.5-pro-preview-05-06",
+    "gemini-2.5-pro-preview-06-05",
+    "gemini-2.5-flash-preview-04-17",
     "gpt-4o-2024-05-13"
+
 ]
 
 closed_model_name = [
@@ -34,7 +37,12 @@ closed_model_name = [
                     "claude-3-haiku-20240307",
                     "gemini-1.5-flash-002",
                     "mistral-large-2411",
-                    "gemini-1.5-flash-8b-001"
+                    "gemini-1.5-flash-8b-001",
+                    "gemini-3-flash-preview"
+                    "gemini-3-pro-preview"
+                    "claude-sonnet-4-5-20250929",
+                    "claude-opus-4-5-20251101",
+                    "claude-haiku-4-5-20251001"
 ]
 
 key_to_category_name = {
