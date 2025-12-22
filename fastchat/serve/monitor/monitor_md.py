@@ -38,8 +38,8 @@ closed_model_name = [
                     "gemini-1.5-flash-002",
                     "mistral-large-2411",
                     "gemini-1.5-flash-8b-001",
-                    "gemini-3-flash-preview"
-                    "gemini-3-pro-preview"
+                    "gemini-3-flash-preview",
+                    "gemini-3-pro-preview",
                     "claude-sonnet-4-5-20250929",
                     "claude-opus-4-5-20251101",
                     "claude-haiku-4-5-20251001"
