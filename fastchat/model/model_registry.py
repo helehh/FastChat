@@ -56,10 +56,10 @@ register_model_info(
 
 register_model_info(
     [
-        "llama-estllm-prototype-1125",
+        "llama-3.1-estllm-8b-instruct-1125",
     ],
-    "EstLLM (Llama) prototüüp 1125 (🔥uus)",
-    "https://huggingface.co/tartuNLP/llama-estllm-protype-1125",
+    "Llama-3.1-EstLLM-8B-Instruct-1125 (🔥uus)",
+    "https://huggingface.co/tartuNLP/Llama-3.1-EstLLM-8B-Instruct-1125",
     "TartuNLP avalik eestikeelsele sisule kohandatud mudel"
 )
 
