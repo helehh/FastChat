@@ -65,7 +65,7 @@ register_model_info(
 
 register_model_info(
     [
-        "apertus-estllm-prototype-1125",
+        "apertus-70b-instruct",
     ],
     "Apertus-70B (🔥uus)",
     "https://huggingface.co/swiss-ai/Apertus-70B-Instruct-2509",
