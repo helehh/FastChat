@@ -68,8 +68,8 @@ register_model_info(
     [
         "apertus-estllm-prototype-1125",
     ],
-    "EstLLM (Apertus) prototüüp 1125 (🔥uus)",
-    "https://huggingface.co/tartuNLP/llama-estllm-protype-1125",
+    "Apertus-EstLLM-8B-Instruct-1125 (🔥uus)",
+    "https://huggingface.co/tartuNLP/Apertus-EstLLM-8B-Instruct-1125",
     "TartuNLP avalik eestikeelsele sisule kohandatud mudel"
 )
 
