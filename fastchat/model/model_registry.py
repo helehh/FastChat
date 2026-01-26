@@ -31,7 +31,7 @@ register_model_info(
     [
         "apertus-8b-instruct-2509",
     ],
-    "Apertus LLM",
+    "Apertus-8B",
     "https://huggingface.co/swiss-ai/Apertus-8B-Instruct-2509",
     "Swiss AI Initiative'i avalik mudel"
 )
@@ -61,6 +61,15 @@ register_model_info(
     "Llama-3.1-EstLLM-8B-Instruct-1125 (🔥uus)",
     "https://huggingface.co/tartuNLP/Llama-3.1-EstLLM-8B-Instruct-1125",
     "TartuNLP avalik eestikeelsele sisule kohandatud mudel"
+)
+
+register_model_info(
+    [
+        "apertus-estllm-prototype-1125",
+    ],
+    "Apertus-70B (🔥uus)",
+    "https://huggingface.co/swiss-ai/Apertus-70B-Instruct-2509",
+    "Swiss AI Initiative'i avalik mudel"
 )
 
 
