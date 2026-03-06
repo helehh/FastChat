@@ -14,7 +14,6 @@ deprecated_model_name = [
 ]
 
 closed_model_name = [
-                    "mistral-large-2512",
                     "mistral-medium-2508",
                     "claude-haiku-4-5-20251001",
                     "claude-opus-4-5-20251101",
